@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 300" role="img" aria-labelledby="title desc">
+  <title id="title">Leading Lines Photography</title>
+  <desc id="desc">Transparent light Leading Lines Photography logo mark</desc>
+  <g fill="none" stroke="#f4ede7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M190 83h-20c-9 0-16 7-16 16v70c0 9 7 16 16 16h31" stroke-width="9"/>
+    <path d="M310 83h20c9 0 16 7 16 16v70c0 9-7 16-16 16h-31" stroke-width="9"/>
+    <path d="M199 67h14" stroke-width="9"/>
+    <path d="M301 67h28" stroke-width="9"/>
+    <path d="M321 67v16" stroke-width="9"/>
+    <circle cx="250" cy="135" r="53" stroke-width="8"/>
+    <path d="M250 93l34 20-4 39-30 26-34-20 4-39z" stroke-width="7"/>
+    <path d="M250 93l-30 26m64-6l-34 65m30-26h-64" stroke-width="5"/>
+  </g>
+  <g fill="#f4ede7" text-anchor="middle">
+    <text x="250" y="229" font-family="Arial Rounded MT Bold, Comfortaa, Arial, sans-serif" font-size="35" font-weight="700" letter-spacing="-1">Leading Lines</text>
+    <rect x="139" y="236" width="222" height="4" rx="2"/>
+    <text x="250" y="266" font-family="Comfortaa, Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="13">Photography</text>
+  </g>
+</svg>

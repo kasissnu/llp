@@ -1,0 +1,1283 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css?family=Comfortaa:400,700&display=swap");
+
+@font-face {
+  font-family: "Jane Austen";
+  src: url("//static.showit.co/file/vE0BameoTLagao2Uf7aonA/234061/janeaust-webfont.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Butler Regular";
+  src: url("//static.showit.co/file/dgXAnagFR2CJxZbgxdV6Jg/234061/butler.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Butler Ultra Light";
+  src: url("//static.showit.co/file/HSLBsfSIQ1OGpR7KoSt0fQ/234061/butler-ultralight.woff") format("woff");
+}
+
+:root {
+  --background: #f6efd8;
+  --surface: #fff9e8;
+  --text: #211715;
+  --muted: #7b6b5f;
+  --brand: #5a0907;
+  --brand-soft: #8a3a2e;
+  --border: #e1d3b7;
+  --paper: var(--background);
+  --ink: var(--text);
+  --charcoal: var(--brand);
+  --taupe: var(--muted);
+  --camel: var(--brand-soft);
+  --line: var(--border);
+  --white: var(--surface);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Comfortaa", Arial, sans-serif;
+}
+
+main {
+  padding-top: 92px;
+}
+
+section {
+  scroll-margin-top: 110px;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+}
+
+h1,
+h2 {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Butler Regular", Georgia, serif;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.1;
+}
+
+p {
+  margin: 0;
+}
+
+.mobile-closed-menu {
+  display: none;
+  height: 53px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+  background: var(--paper);
+}
+
+.mobile-closed-menu button {
+  display: grid;
+  gap: 5px;
+  width: 28px;
+}
+
+.mobile-closed-menu button span {
+  height: 1px;
+  background: var(--camel);
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: var(--taupe);
+  line-height: 1;
+}
+
+.brand-mark span {
+  font-family: "Butler Regular", Georgia, serif;
+  font-size: 28px;
+  text-transform: uppercase;
+}
+
+.brand-mark small {
+  margin-top: 5px;
+  font-family: "Comfortaa", Arial, sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.hero-image {
+  position: relative;
+  height: calc(100svh - 92px);
+  min-height: min(520px, calc(100svh - 92px));
+  background: var(--paper);
+  overflow: hidden;
+}
+
+.hero-frame {
+  position: absolute;
+  left: 50%;
+  top: clamp(26px, 8vh, 66px);
+  width: min(1060px, calc(100% - 140px));
+  height: calc(100% - 150px);
+  transform: translateX(-50%);
+  background: var(--white);
+  padding: 16px;
+}
+
+.hero-gallery-viewport {
+  height: 100%;
+  overflow: hidden;
+}
+
+.hero-gallery-track {
+  --slide-gap: 10px;
+  --slide-width: calc((100% - (var(--slide-gap) * 2)) / 3);
+  --slide-step: calc(var(--slide-width) + var(--slide-gap));
+  height: 100%;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: var(--slide-width);
+  gap: var(--slide-gap);
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+  will-change: transform;
+}
+
+.hero-slide {
+  min-width: 0;
+}
+
+.hero-side-text {
+  position: absolute;
+  right: -75px;
+  top: 50%;
+  transform: rotate(270deg);
+  transform-origin: center;
+  color: var(--taupe);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.gallery-controls {
+  position: absolute;
+  left: 70px;
+  right: 70px;
+  bottom: clamp(20px, 4vh, 31px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--ink);
+}
+
+.gallery-controls span {
+  font-family: "Jane Austen", cursive;
+  font-size: 28px;
+}
+
+.gallery-controls button {
+  color: var(--ink);
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.gallery-buttons {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.gallery-controls button {
+  min-width: 38px;
+}
+
+.main-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  height: 92px;
+  background: var(--paper);
+}
+
+.menu-line {
+  height: 1px;
+  background: rgba(123, 107, 95, 0.32);
+}
+
+.menu-line.lower {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.menu-links {
+  width: min(1200px, 100%);
+  height: 90px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px minmax(0, 1fr);
+  align-items: center;
+  gap: 16px;
+  padding: 0 26px;
+}
+
+.menu-links > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(14px, 2.4vw, 28px);
+  min-width: 0;
+}
+
+.menu-links a {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  line-height: 1.7;
+  text-transform: uppercase;
+  transition: color 180ms ease;
+}
+
+.menu-links a:hover {
+  color: var(--taupe);
+}
+
+.nav-brand {
+  display: block;
+  width: 220px;
+  height: 78px;
+  margin: 0 auto;
+  color: var(--taupe);
+}
+
+.nav-brand img,
+.footer-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.about-section {
+  position: relative;
+  min-height: 800px;
+  display: grid;
+  grid-template-columns: 340px minmax(0, 480px) 320px;
+  justify-content: center;
+  align-items: center;
+  gap: 38px;
+  background: var(--paper);
+}
+
+.about-image {
+  background: var(--line);
+}
+
+.about-image.primary {
+  height: 560px;
+}
+
+.about-image.secondary {
+  height: 430px;
+  align-self: end;
+  margin-bottom: 80px;
+}
+
+.about-copy {
+  align-self: start;
+  margin-top: 160px;
+  text-align: center;
+}
+
+.script {
+  color: var(--camel);
+  font-family: "Jane Austen", cursive;
+  font-size: 40px;
+  line-height: 1;
+}
+
+.about-copy h1 {
+  margin-top: 30px;
+  font-size: 54px;
+  text-transform: uppercase;
+}
+
+.about-copy p:not(.script),
+.reviews-copy p,
+.testimonial-frame p {
+  color: var(--ink);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  line-height: 2;
+}
+
+.about-copy p:not(.script) {
+  margin-top: 28px;
+  text-align: left;
+}
+
+.text-link {
+  display: inline-block;
+  margin-top: 34px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  line-height: 1.7;
+  text-transform: uppercase;
+}
+
+.split-showcase {
+  position: relative;
+  height: clamp(520px, 72vh, 760px);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(33, 23, 21, 0.08), rgba(33, 23, 21, 0.08)),
+    url("https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=2200&q=85")
+      center / cover;
+}
+
+.split-panel {
+  position: relative;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+}
+
+.split-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0;
+  background: rgba(255, 249, 232, 0.76);
+  transition: opacity 360ms ease;
+}
+
+.split-panel span,
+.split-panel small {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 320ms ease,
+    transform 320ms ease;
+}
+
+.split-panel span {
+  color: var(--text);
+  font-family: "Butler Regular", Georgia, serif;
+  font-size: clamp(46px, 5vw, 74px);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.split-panel small {
+  display: block;
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.35em;
+  line-height: 1.7;
+  text-transform: uppercase;
+}
+
+.split-panel small::after {
+  content: "";
+  display: block;
+  width: min(196px, 55vw);
+  height: 1px;
+  margin: 34px auto 0;
+  background: currentColor;
+}
+
+.split-panel:hover::before,
+.split-panel:focus-visible::before,
+.split-panel:hover span,
+.split-panel:hover small,
+.split-panel:focus-visible span,
+.split-panel:focus-visible small {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.kind-words {
+  position: relative;
+  min-height: calc(100svh - 92px);
+  max-height: calc(100svh - 92px);
+  overflow: hidden;
+  padding: clamp(14px, 2.4vh, 26px) 24px clamp(18px, 2.8vh, 30px);
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  background: var(--line);
+  text-align: center;
+}
+
+.testimonial-frame {
+  width: min(820px, 100%);
+  animation: testimonialFade 420ms ease;
+}
+
+.testimonial-image-card {
+  position: relative;
+  width: min(660px, 100%);
+  margin: 0 auto;
+  padding: 18px;
+  border-radius: 8px;
+  background: rgba(255, 249, 232, 0.86);
+}
+
+.testimonial-image-card img {
+  height: clamp(190px, 24vh, 260px);
+}
+
+.testimonial-seal {
+  position: absolute;
+  left: 50%;
+  bottom: -38px;
+  width: 86px;
+  height: 102px;
+  transform: translateX(-50%);
+  display: grid;
+  place-items: center;
+  border: 9px solid var(--paper);
+  border-radius: 50%;
+  background: rgba(255, 249, 232, 0.96);
+  box-shadow: inset 0 0 0 2px rgba(90, 9, 7, 0.62);
+}
+
+.testimonial-seal span {
+  color: rgba(90, 9, 7, 0.86);
+  font-family: "Jane Austen", cursive;
+  font-size: 38px;
+  line-height: 1;
+}
+
+.testimonial-frame h2 {
+  margin: 54px auto 0;
+  color: var(--ink);
+  font-size: clamp(30px, 4.4vw, 56px);
+  line-height: 1.02;
+  text-transform: uppercase;
+}
+
+.testimonial-frame p {
+  width: min(700px, 100%);
+  margin: 22px auto 0;
+  font-size: 11px;
+  letter-spacing: 0.13em;
+  line-height: 1.65;
+  text-align: center;
+}
+
+.testimonial-name {
+  display: block;
+  margin-top: 16px;
+  color: var(--ink);
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  line-height: 1.7;
+  text-transform: uppercase;
+}
+
+.testimonial-arrows {
+  margin-top: 16px;
+  display: flex;
+  gap: 28px;
+}
+
+.testimonial-arrows button {
+  color: rgba(90, 9, 7, 0.86);
+  font-size: 38px;
+  line-height: 1;
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.testimonial-arrows button:hover {
+  color: var(--ink);
+  transform: translateY(-1px);
+}
+
+@keyframes testimonialFade {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.video-parallax-shell {
+  position: relative;
+  height: clamp(560px, 90svh, 900px);
+  overflow: hidden;
+  background: var(--paper);
+  --video-parallax-y: -10%;
+}
+
+.video-banner {
+  position: relative;
+  isolation: isolate;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-content: space-between;
+  padding: 40px;
+  color: var(--paper);
+  overflow: hidden;
+  background: var(--charcoal);
+}
+
+.video-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(rgba(33, 23, 21, 0.12), rgba(33, 23, 21, 0.24));
+  pointer-events: none;
+}
+
+.video-banner-media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 120%;
+  object-fit: cover;
+  transform: translate3d(0, var(--video-parallax-y), 0);
+  will-change: transform;
+}
+
+.video-banner h2 {
+  color: var(--paper);
+  font-size: 54px;
+}
+
+.video-banner .script {
+  color: var(--paper);
+}
+
+.video-banner-kicker,
+.video-banner a {
+  color: var(--paper);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  line-height: 1.7;
+  text-transform: uppercase;
+}
+
+.video-banner a {
+  align-self: end;
+  justify-self: end;
+  min-width: 150px;
+  padding: 9px 18px;
+  border: 1px solid var(--paper);
+  text-align: center;
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.video-banner a:hover {
+  background: var(--paper);
+  color: var(--charcoal);
+}
+
+.reviews-section {
+  min-height: 850px;
+  display: grid;
+  grid-template-columns: 260px minmax(280px, 390px) 414px;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  border-top: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.video-card {
+  height: 458px;
+  display: grid;
+  place-items: center;
+  background:
+    linear-gradient(rgba(33, 23, 21, 0.34), rgba(33, 23, 21, 0.34)),
+    url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=85")
+      center / cover;
+  color: var(--paper);
+}
+
+.video-card span {
+  font-family: "Jane Austen", cursive;
+  font-size: 38px;
+}
+
+.reviews-copy h2 {
+  font-size: 45px;
+  text-align: left;
+}
+
+.reviews-copy p {
+  margin-top: 32px;
+}
+
+.reviews-section > img {
+  height: 481px;
+}
+
+.booking-banner {
+  min-height: 550px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 28px;
+  background:
+    linear-gradient(rgba(90, 9, 7, 0.72), rgba(90, 9, 7, 0.76)),
+    url("https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=1800&q=85")
+      center / cover;
+  text-align: center;
+}
+
+.booking-banner h2 {
+  max-width: 430px;
+  color: var(--paper);
+  font-size: 45px;
+}
+
+.booking-banner p {
+  color: var(--paper);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  line-height: 1.7;
+  text-transform: uppercase;
+}
+
+.booking-banner a {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--paper);
+  border-radius: 50%;
+  color: var(--paper);
+  font-size: 20px;
+}
+
+.footer {
+  background: var(--brand);
+  color: var(--paper);
+}
+
+.footer {
+  position: relative;
+  min-height: 550px;
+  display: grid;
+  align-content: start;
+  justify-items: center;
+  padding-top: 88px;
+  text-align: center;
+}
+
+.footer-logo {
+  position: absolute;
+  top: -78px;
+  width: 210px;
+  height: 126px;
+  padding: 12px;
+  border-radius: 8px;
+  background: var(--brand);
+  color: var(--paper);
+}
+
+.footer h3 {
+  width: min(567px, calc(100% - 48px));
+  margin: 0;
+  color: var(--paper);
+  font-family: "Butler Ultra Light", Georgia, serif;
+  font-size: 23px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.footer nav {
+  margin-top: 40px;
+  display: flex;
+  gap: 42px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer nav a,
+.footer p,
+.footer .back-top,
+.instagram-strip span {
+  color: var(--paper);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+
+.instagram-strip {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 184px);
+  gap: 8px;
+  position: relative;
+}
+
+.instagram-strip span {
+  position: absolute;
+  left: -122px;
+  top: 82px;
+  transform: rotate(270deg);
+  transform-origin: center;
+}
+
+.instagram-strip img {
+  height: 183px;
+}
+
+.footer p {
+  margin-top: 28px;
+  text-transform: capitalize;
+}
+
+.back-top {
+  position: absolute;
+  right: 50px;
+  bottom: 185px;
+}
+
+.footer-credits {
+  width: min(1100px, calc(100% - 80px));
+  margin-top: 28px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(246, 239, 216, 0.28);
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.footer-credits p {
+  margin: 0;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1180px) {
+  .menu-links {
+    grid-template-columns: minmax(0, 1fr) 190px minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .menu-links > div {
+    gap: 14px;
+  }
+
+  .menu-links a {
+    font-size: 9px;
+    letter-spacing: 0.16em;
+  }
+
+  .nav-brand {
+    width: 190px;
+    height: 68px;
+  }
+
+  .hero-frame {
+    width: calc(100% - 88px);
+  }
+
+  .hero-side-text {
+    right: -108px;
+  }
+
+  .about-section {
+    grid-template-columns: 280px minmax(0, 420px) 260px;
+    gap: 28px;
+    padding-inline: 28px;
+  }
+
+  .about-copy h1 {
+    font-size: 44px;
+  }
+
+  .reviews-section {
+    grid-template-columns: 220px minmax(280px, 370px) 340px;
+    gap: 28px;
+    padding-inline: 28px;
+  }
+
+  .instagram-strip {
+    grid-template-columns: repeat(4, minmax(132px, 168px));
+  }
+
+  .instagram-strip img {
+    height: 168px;
+  }
+}
+
+@media (max-width: 900px) {
+  main {
+    padding-top: 136px;
+  }
+
+  .mobile-closed-menu {
+    display: none;
+  }
+
+  .main-menu {
+    display: block;
+    height: 136px;
+  }
+
+  .menu-links {
+    height: 134px;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 6px;
+    padding: 10px 12px 12px;
+  }
+
+  .nav-brand {
+    grid-row: 1;
+    width: min(210px, 72vw);
+    height: 64px;
+  }
+
+  .menu-links > div {
+    flex-wrap: wrap;
+    gap: 8px 14px;
+  }
+
+  .menu-links > div:first-child {
+    grid-row: 2;
+  }
+
+  .menu-links > div:last-child {
+    grid-row: 3;
+  }
+
+  .menu-links a {
+    font-size: 8px;
+    letter-spacing: 0.14em;
+  }
+
+  .hero-image {
+    height: calc(100svh - 136px);
+    min-height: min(360px, calc(100svh - 136px));
+  }
+
+  .hero-side-text {
+    left: 29px;
+    right: auto;
+    top: 22px;
+    width: 263px;
+    transform: none;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.7;
+  }
+
+  .hero-frame {
+    top: 74px;
+    width: calc(100% - 24px);
+    height: calc(100% - 142px);
+    padding: 7px;
+  }
+
+  .hero-gallery-track {
+    --slide-gap: 7px;
+  }
+
+  .gallery-controls {
+    left: 12px;
+    right: 12px;
+    bottom: 36px;
+  }
+
+  .gallery-buttons {
+    gap: 12px;
+  }
+
+  .about-section {
+    min-height: 1000px;
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 44px 28px;
+  }
+
+  .about-image.primary {
+    height: 286px;
+    width: 259px;
+  }
+
+  .about-image.secondary {
+    height: 210px;
+    width: 190px;
+    justify-self: end;
+    margin-bottom: 0;
+  }
+
+  .about-copy {
+    margin-top: 38px;
+  }
+
+  .about-copy h1 {
+    font-size: 24px;
+  }
+
+  .split-showcase {
+    height: auto;
+    min-height: 560px;
+    grid-template-columns: 1fr;
+    background-position: center;
+  }
+
+  .split-panel {
+    min-height: 280px;
+  }
+
+  .split-panel::before,
+  .split-panel span,
+  .split-panel small {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .kind-words {
+    min-height: calc(100svh - 136px);
+    max-height: calc(100svh - 136px);
+    padding: 18px 20px 24px;
+    overflow: hidden;
+  }
+
+  .testimonial-frame {
+    width: min(720px, 100%);
+  }
+
+  .testimonial-image-card {
+    width: min(500px, 100%);
+    padding: 10px;
+  }
+
+  .testimonial-image-card img {
+    height: clamp(150px, 22svh, 210px);
+  }
+
+  .testimonial-frame h2 {
+    margin-top: 44px;
+    font-size: clamp(26px, 7vw, 40px);
+  }
+
+  .testimonial-frame p {
+    margin-top: 16px;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    line-height: 1.58;
+  }
+
+  .testimonial-seal {
+    width: 70px;
+    height: 84px;
+    bottom: -34px;
+    border-width: 8px;
+  }
+
+  .testimonial-seal span {
+    font-size: 32px;
+  }
+
+  .testimonial-name {
+    margin-top: 12px;
+    font-size: 10px;
+  }
+
+  .testimonial-arrows {
+    margin-top: 14px;
+  }
+
+  .testimonial-arrows button {
+    font-size: 28px;
+  }
+
+  .video-parallax-shell {
+    height: clamp(460px, 82svh, 640px);
+  }
+
+  .video-banner {
+    min-height: 0;
+    grid-template-columns: 1fr;
+    padding: 24px;
+  }
+
+  .video-banner h2 {
+    font-size: 24px;
+  }
+
+  .video-banner a {
+    justify-self: center;
+  }
+
+  .reviews-section {
+    min-height: 950px;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 44px 28px;
+  }
+
+  .video-card {
+    width: 167px;
+    height: 298px;
+    justify-self: end;
+  }
+
+  .reviews-copy {
+    order: -1;
+  }
+
+  .reviews-copy h2 {
+    font-size: 20px;
+  }
+
+  .reviews-section > img {
+    width: 259px;
+    height: 186px;
+  }
+
+  .booking-banner {
+    min-height: 350px;
+    padding: 0 28px;
+  }
+
+  .booking-banner h2 {
+    font-size: 20px;
+  }
+
+  .booking-banner p {
+    font-size: 10px;
+  }
+
+  .footer {
+    min-height: 649px;
+    padding-top: 95px;
+  }
+
+  .footer-logo {
+    top: -69px;
+    width: 187px;
+    height: 112px;
+  }
+
+  .footer h3 {
+    font-size: 15px;
+  }
+
+  .footer nav {
+    width: 260px;
+    gap: 16px 42px;
+  }
+
+  .instagram-strip {
+    grid-template-columns: repeat(2, 111px);
+    gap: 7px;
+  }
+
+  .instagram-strip span,
+  .back-top {
+    display: none;
+  }
+
+  .instagram-strip img {
+    height: 112px;
+  }
+
+  .footer-credits {
+    width: min(280px, calc(100% - 40px));
+    display: grid;
+    justify-content: center;
+    gap: 6px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+  main {
+    padding-top: 150px;
+  }
+
+  section {
+    scroll-margin-top: 160px;
+  }
+
+  .main-menu {
+    height: 150px;
+  }
+
+  .menu-links {
+    height: 148px;
+    padding: 8px 10px 12px;
+  }
+
+  .nav-brand {
+    width: min(184px, 68vw);
+    height: 58px;
+  }
+
+  .menu-links > div {
+    gap: 7px 11px;
+  }
+
+  .menu-links a {
+    font-size: 7px;
+    letter-spacing: 0.12em;
+  }
+
+  .hero-image {
+    height: calc(100svh - 150px);
+    min-height: min(390px, calc(100svh - 150px));
+  }
+
+  .hero-side-text {
+    left: 50%;
+    top: 15px;
+    width: calc(100% - 36px);
+    transform: translateX(-50%);
+  }
+
+  .hero-frame {
+    top: 68px;
+    width: calc(100% - 18px);
+    height: calc(100% - 128px);
+    padding: 6px;
+  }
+
+  .gallery-controls {
+    bottom: 20px;
+  }
+
+  .gallery-controls span {
+    font-size: 24px;
+  }
+
+  .about-section {
+    min-height: auto;
+    padding: 40px 22px 58px;
+  }
+
+  .about-image.primary,
+  .about-image.secondary {
+    width: 100%;
+  }
+
+  .about-copy p:not(.script) {
+    text-align: center;
+  }
+
+  .split-panel span {
+    font-size: 40px;
+  }
+
+  .split-panel small {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+  }
+
+  .kind-words {
+    min-height: calc(100svh - 136px);
+    max-height: calc(100svh - 136px);
+    padding: 14px 14px 18px;
+    overflow: hidden;
+  }
+
+  .testimonial-image-card img {
+    height: clamp(132px, 22svh, 168px);
+  }
+
+  .testimonial-frame h2 {
+    margin-top: 42px;
+    font-size: clamp(24px, 7.5vw, 30px);
+  }
+
+  .testimonial-frame p {
+    margin-top: 16px;
+    font-size: 9px;
+    line-height: 1.56;
+  }
+
+  .testimonial-name {
+    margin-top: 10px;
+    font-size: 9px;
+  }
+
+  .testimonial-arrows {
+    margin-top: 12px;
+    gap: 20px;
+  }
+
+  .reviews-section {
+    padding: 40px 22px;
+  }
+
+  .reviews-section > img,
+  .video-card {
+    width: 100%;
+  }
+
+  .footer nav {
+    width: min(280px, calc(100% - 40px));
+    gap: 14px 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .hero-gallery-track,
+  .split-panel::before,
+  .split-panel span,
+  .split-panel small,
+  .video-banner::after {
+    transition-duration: 0ms !important;
+  }
+
+  .video-banner-media,
+  .video-banner-copy,
+  .video-banner-kicker,
+  .video-banner a {
+    transform: none !important;
+  }
+}
