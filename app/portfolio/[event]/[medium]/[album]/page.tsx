@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { ParallaxBookingBanner } from "../../../../components/ParallaxBookingBanner";
 import { SiteFooter } from "../../../../components/SiteFooter";
 import { SiteNav } from "../../../../components/SiteNav";
 import { eventLabels, portfolioAlbums, type EventKey } from "../../../portfolio-data";
@@ -31,7 +32,6 @@ export default async function AlbumPage({ params }: AlbumPageProps) {
       <SiteNav />
 
       <section className="portfolio-album-hero">
-        <p className="section-label">{eventLabel} stills</p>
         <h1>{album.title}</h1>
         <p>{album.place}</p>
       </section>
@@ -45,13 +45,17 @@ export default async function AlbumPage({ params }: AlbumPageProps) {
         ))}
       </section>
 
-      <section className="page-cta">
-        <p className="section-label">Like this album?</p>
-        <h2>Tell us the kind of story you want your gallery to hold.</h2>
-        <a href="/book">Book us</a>
-      </section>
+      <ParallaxBookingBanner
+        eyebrow="Like this album?"
+        title="Tell us the kind of story you want your gallery to hold."
+        body={`We can shape ${album.title}'s kind of feeling around your own wedding rhythm.`}
+        label="Book us"
+      />
 
-      <SiteFooter headline={`${album.title} ${eventLabel.toLowerCase()} stills, held with emotion, rhythm, and care.`} />
+      <SiteFooter
+        headline={`${album.title} ${eventLabel.toLowerCase()} stills, held with emotion, rhythm, and care.`}
+        tone="album"
+      />
     </main>
   );
 }

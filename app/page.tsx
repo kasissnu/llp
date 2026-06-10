@@ -1,4 +1,5 @@
 import { HeroCarousel } from "./components/HeroCarousel";
+import { ParallaxBookingBanner } from "./components/ParallaxBookingBanner";
 import { ParallaxVideoBanner } from "./components/ParallaxVideoBanner";
 import { SiteFooter } from "./components/SiteFooter";
 import { SiteNav } from "./components/SiteNav";
@@ -46,7 +47,6 @@ export default function Home() {
       <SiteNav />
 
       <section className="hero-image">
-        <p className="hero-side-text">Bangalore only / photography + films / honest celebrations</p>
         <HeroCarousel images={galleryImages} />
       </section>
 
@@ -129,16 +129,12 @@ export default function Home() {
         />
       </section>
 
-      <section className="booking-banner" id="booking">
-        <p className="section-label">Now booking Bangalore celebrations</p>
-        <h2>Tell us where the day begins. We will follow the lines from there.</h2>
-        <p>Photography, films, or both. Built around your people and your pace.</p>
-        <a href="/book" aria-label="Book Leading Lines Photography">
-          →
-        </a>
-      </section>
+      <ParallaxBookingBanner />
 
-      <SiteFooter headline="Bangalore wedding photography and films for families who want the day remembered honestly, beautifully, and without the noise." />
+      <SiteFooter
+        headline="Bangalore wedding photography and films for families who want the day remembered honestly, beautifully, and without the noise."
+        tone="home"
+      />
     </main>
   );
 }

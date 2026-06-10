@@ -1,30 +1,54 @@
+import { ParallaxBookingBanner } from "../components/ParallaxBookingBanner";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteNav } from "../components/SiteNav";
 
 const services = [
   {
-    title: "Wedding Photography",
+    title: "Weddings",
     detail:
-      "Full-day documentary coverage for rituals, portraits, family moments, and reception energy.",
-    meta: "Single day / multi-event / full wedding",
+      "Full-day documentary coverage for rituals, portraits, family moments, and reception energy. Collections are shaped around your schedule, venues, and the rhythm of your people.",
+    meta: "Custom wedding coverage",
+    image: "/services-hero-banner.png",
+    href: "/portfolio/weddings/images",
   },
   {
-    title: "Wedding Films",
+    title: "Preweddings",
     detail:
-      "Cinematic films built from vows, sound, movement, and the natural rhythm of your celebration.",
-    meta: "Teaser / highlight / full film",
-  },
-  {
-    title: "Engagements & Pre-Weddings",
-    detail:
-      "Editorial portraits and easy guided sessions across Bangalore, designed around your comfort.",
+      "Editorial portraits and easy guided sessions across Bangalore, planned around comfort, light, location, and the mood you want the images to carry.",
     meta: "Outdoor / home / venue-led",
+    image: "/split-films.jpg",
+    href: "/portfolio/prewedding/images",
   },
   {
     title: "Family Events",
     detail:
-      "Coverage for intimate ceremonies, milestone gatherings, and the people who make them matter.",
+      "Quiet, observant coverage for intimate ceremonies, milestone gatherings, anniversaries, and the people who make those rooms feel full.",
     meta: "Naming / anniversaries / private events",
+    image: "/split-stills.jpg",
+    href: "/portfolio",
+  },
+  {
+    title: "Photoshoots",
+    detail:
+      "Portrait-led sessions for couples, families, maternity, personal milestones, and thoughtful editorial imagery without the pressure of a full event.",
+    meta: "Portraits / couples / maternity",
+    image: "/founder-chenmay-ssinha.webp",
+    href: "/book",
+  },
+];
+
+const serviceThemes = [
+  {
+    surface: "olive",
+  },
+  {
+    surface: "ink",
+  },
+  {
+    surface: "paper",
+  },
+  {
+    surface: "brand",
   },
 ];
 
@@ -42,21 +66,32 @@ export default function DetailsPage() {
       <SiteNav />
 
       <section className="page-hero details-hero">
-        <p className="section-label">Details / Services</p>
-        <h1>Photography and films for Bangalore celebrations.</h1>
-        <p>
-          Choose stills, films, or a combined team. Every collection is built
-          around your schedule, rituals, venues, families, and pace.
-        </p>
+        <h1>
+          Explore the <span className="script-word">services</span>
+        </h1>
       </section>
 
       <section className="service-grid" aria-label="Services offered">
         {services.map((service, index) => (
-          <article className="service-card" id={service.title === "Wedding Films" ? "films" : undefined} key={service.title}>
-            <span>{String(index + 1).padStart(2, "0")}</span>
-            <h2>{service.title}</h2>
-            <p>{service.detail}</p>
-            <small>{service.meta}</small>
+          <article
+            className={`service-card service-card-${serviceThemes[index].surface}`}
+            id={service.title === "Weddings" ? "weddings" : undefined}
+            key={service.title}
+          >
+            <div className="service-card-title">
+              <span>{service.title}</span>
+            </div>
+            <div className="service-card-body">
+              <div className="service-card-copy">
+                <p>{service.detail}</p>
+                <small>{service.meta}</small>
+                <div className="service-card-actions">
+                  <a href={service.href}>View portfolio</a>
+                  <a href="/book">Inquire for availability</a>
+                </div>
+              </div>
+              <img src={service.image} alt={`${service.title} service by Leading Lines Photography`} />
+            </div>
           </article>
         ))}
       </section>
@@ -73,13 +108,17 @@ export default function DetailsPage() {
         </ol>
       </section>
 
-      <section className="page-cta">
-        <p className="section-label">Ready to book?</p>
-        <h2>Send us the date, venues, and what you want remembered.</h2>
-        <a href="/book">Start the booking form</a>
-      </section>
+      <ParallaxBookingBanner
+        eyebrow="Ready to book?"
+        title="Send us the date, venues, and what you want remembered."
+        body="We will help shape a photo and film plan around your rituals, family, and timings."
+        label="Start the booking form"
+      />
 
-      <SiteFooter headline="Services that stay flexible around your rituals, people, timings, and the pace of a real Bangalore wedding." />
+      <SiteFooter
+        headline="Services that stay flexible around your rituals, people, timings, and the pace of a real Bangalore wedding."
+        tone="details"
+      />
     </main>
   );
 }

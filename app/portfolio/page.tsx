@@ -1,3 +1,4 @@
+import { ParallaxBookingBanner } from "../components/ParallaxBookingBanner";
 import { PortfolioCarousel } from "../components/PortfolioCarousel";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteNav } from "../components/SiteNav";
@@ -103,13 +104,17 @@ export default function PortfolioPage() {
         ))}
       </section>
 
-      <section className="page-cta">
-        <p className="section-label">Planning something similar?</p>
-        <h2>Tell us the kind of celebration you are building.</h2>
-        <a href="/book">Book Leading Lines</a>
-      </section>
+      <ParallaxBookingBanner
+        eyebrow="Planning something similar?"
+        title="Tell us the kind of celebration you are building."
+        body="We will listen for the people, places, and moments your gallery needs to hold."
+        label="Book Leading Lines"
+      />
 
-      <SiteFooter headline="A growing archive of Bangalore weddings, preweddings, still frames, and films made with a quiet eye." />
+      <SiteFooter
+        headline="A growing archive of Bangalore weddings, preweddings, still frames, and films made with a quiet eye."
+        tone="portfolio"
+      />
     </main>
   );
 }

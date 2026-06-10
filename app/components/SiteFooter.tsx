@@ -1,5 +1,6 @@
 type SiteFooterProps = {
   headline: string;
+  tone?: "home" | "about" | "details" | "portfolio" | "collection" | "album" | "book";
 };
 
 const socialLinks = {
@@ -8,9 +9,9 @@ const socialLinks = {
   facebook: "https://www.facebook.com/share/1aj4JaWHCg/",
 };
 
-export function SiteFooter({ headline }: SiteFooterProps) {
+export function SiteFooter({ headline, tone = "home" }: SiteFooterProps) {
   return (
-    <footer className="footer" id="contact">
+    <footer className={`footer footer-${tone}`} id="contact">
       <div className="footer-grid">
         <section className="footer-brand">
           <a className="footer-logo" href="/" aria-label="Leading Lines Photography home">

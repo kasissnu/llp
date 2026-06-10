@@ -1,3 +1,4 @@
+import { ParallaxBookingBanner } from "../components/ParallaxBookingBanner";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteNav } from "../components/SiteNav";
 import styles from "./book.module.css";
@@ -8,7 +9,6 @@ export default function BookPage() {
       <SiteNav />
 
       <section className={styles.bookingHero}>
-        <p className="section-label">Book us</p>
         <h1>Start with the date, the place, and the people.</h1>
         <p>
           Fill this in with whatever you know right now. We will use it to
@@ -93,7 +93,18 @@ export default function BookPage() {
         </form>
       </section>
 
-      <SiteFooter headline="Tell us what matters most, and we will shape the photography and films around that story." />
+      <ParallaxBookingBanner
+        eyebrow="We are listening"
+        title="Share the details you know. We will help with the rest."
+        body="Dates, venues, rituals, guest count, or just the feeling you want remembered."
+        href="#top"
+        label="Return to booking form"
+      />
+
+      <SiteFooter
+        headline="Tell us what matters most, and we will shape the photography and films around that story."
+        tone="book"
+      />
     </main>
   );
 }

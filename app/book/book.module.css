@@ -11,7 +11,7 @@
   padding: clamp(70px, 10vw, 118px) clamp(24px, 7vw, 92px);
   overflow: hidden;
   background:
-    linear-gradient(115deg, rgba(90, 9, 7, 0.08), transparent 44%),
+    linear-gradient(115deg, rgba(44, 41, 37, 0.08), transparent 44%),
     var(--paper);
 }
 
@@ -22,7 +22,7 @@
   right: 8vw;
   top: 50%;
   height: 1px;
-  background: rgba(90, 9, 7, 0.2);
+  background: rgba(44, 41, 37, 0.2);
   transform: rotate(-9deg);
 }
 
@@ -202,5 +202,31 @@
   .bookingForm select,
   .bookingForm textarea {
     padding: 12px 10px;
+  }
+}
+
+@media (max-width: 430px) {
+  .bookingHero {
+    min-height: 340px;
+    padding: 42px 16px;
+  }
+
+  .bookingHero h1 {
+    font-size: 34px;
+    line-height: 1;
+  }
+
+  .formSection {
+    padding: 38px 14px;
+  }
+
+  .bookingForm fieldset {
+    padding: 14px;
+  }
+
+  .bookingForm button {
+    min-height: 48px;
+    padding-inline: 14px;
+    letter-spacing: 0.14em;
   }
 }

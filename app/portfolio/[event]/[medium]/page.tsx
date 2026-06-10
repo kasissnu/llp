@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ParallaxBookingBanner } from "../../../components/ParallaxBookingBanner";
 import { SiteFooter } from "../../../components/SiteFooter";
 import { SiteNav } from "../../../components/SiteNav";
 import { eventLabels, filmEmbeds, portfolioAlbums } from "../../portfolio-data";
@@ -65,13 +66,17 @@ export default async function PortfolioCollectionPage({ params }: PortfolioColle
         )}
       </section>
 
-      <section className="page-cta">
-        <p className="section-label">Like this direction?</p>
-        <h2>Send us your date and we will help shape the right collection.</h2>
-        <a href="/book">Book us</a>
-      </section>
+      <ParallaxBookingBanner
+        eyebrow="Like this direction?"
+        title="Send us your date and we will help shape the right collection."
+        body={`${pageTitle} can be planned around your rituals, venues, and pace.`}
+        label="Book us"
+      />
 
-      <SiteFooter headline={`${pageTitle} for couples who want their story held with emotion, rhythm, and care.`} />
+      <SiteFooter
+        headline={`${pageTitle} for couples who want their story held with emotion, rhythm, and care.`}
+        tone="collection"
+      />
     </main>
   );
 }
