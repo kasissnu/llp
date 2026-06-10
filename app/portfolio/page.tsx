@@ -47,7 +47,7 @@ const collections = [
     links: [
       {
         title: "Stills",
-        href: "/portfolio/weddings/images",
+        href: "/portfolio/weddings/stills",
         image:
           "https://images.unsplash.com/photo-1529634597503-139d3726fed5?auto=format&fit=crop&w=1000&q=85",
       },
@@ -64,7 +64,7 @@ const collections = [
     links: [
       {
         title: "Stills",
-        href: "/portfolio/prewedding/images",
+        href: "/portfolio/prewedding/stills",
         image:
           "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1000&q=85",
       },

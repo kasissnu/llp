@@ -46,7 +46,6 @@ export default function Home() {
       <SiteNav />
 
       <section className="hero-image">
-        <h1 className="hero-brand-title">Leading Lines Photography</h1>
         <p className="hero-side-text">Bangalore only / photography + films / honest celebrations</p>
         <HeroCarousel images={galleryImages} />
       </section>

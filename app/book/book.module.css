@@ -39,6 +39,7 @@
   font-weight: 400;
   line-height: 0.94;
   text-transform: uppercase;
+  overflow-wrap: anywhere;
 }
 
 .bookingHero p:not(.section-label) {
@@ -63,6 +64,7 @@
 
 .bookingForm label,
 .bookingForm fieldset {
+  min-width: 0;
   display: grid;
   gap: 10px;
   color: var(--brand);
@@ -77,6 +79,7 @@
 .bookingForm select,
 .bookingForm textarea {
   width: 100%;
+  min-width: 0;
   border: 1px solid var(--border);
   border-radius: 0;
   background: var(--paper);
@@ -87,6 +90,10 @@
   line-height: 1.7;
   padding: 14px 12px;
   text-transform: none;
+}
+
+.bookingForm textarea {
+  resize: vertical;
 }
 
 .bookingForm input:focus,
@@ -165,7 +172,16 @@
 
 @media (max-width: 640px) {
   .bookingHero {
+    min-height: 360px;
     padding: 48px 18px;
+  }
+
+  .bookingHero::before {
+    display: none;
+  }
+
+  .bookingHero h1 {
+    font-size: clamp(32px, 10vw, 44px);
   }
 
   .bookingHero p:not(.section-label) {
@@ -174,5 +190,17 @@
 
   .bookingForm {
     gap: 18px;
+  }
+
+  .bookingForm label,
+  .bookingForm fieldset {
+    font-size: 9px;
+    letter-spacing: 0.12em;
+  }
+
+  .bookingForm input,
+  .bookingForm select,
+  .bookingForm textarea {
+    padding: 12px 10px;
   }
 }

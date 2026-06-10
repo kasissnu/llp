@@ -19,20 +19,10 @@ export function ParallaxVideoBanner({ videoSrc, poster }: ParallaxVideoBannerPro
 
     let frame = 0;
 
-    const updateParallax = () => {
+    const updateReveal = () => {
       frame = 0;
-
-      const viewportHeight = window.innerHeight || 1;
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.offsetHeight;
-      const triggerStart = sectionTop - viewportHeight;
-      const triggerEnd = sectionTop + sectionHeight;
-      const triggerDistance = Math.max(1, triggerEnd - triggerStart);
-      const progress = (window.scrollY - triggerStart) / triggerDistance;
-      const clamped = Math.min(1, Math.max(0, progress));
-      const mediaOffset = clamped * 4 - 2;
-
-      section.style.setProperty("--video-parallax-y", `${mediaOffset.toFixed(2)}%`);
+      const { top } = section.getBoundingClientRect();
+      section.style.setProperty("--video-reveal-y", `${(-top * 0.85).toFixed(2)}px`);
     };
 
     const requestUpdate = () => {
@@ -40,10 +30,10 @@ export function ParallaxVideoBanner({ videoSrc, poster }: ParallaxVideoBannerPro
         return;
       }
 
-      frame = window.requestAnimationFrame(updateParallax);
+      frame = window.requestAnimationFrame(updateReveal);
     };
 
-    updateParallax();
+    updateReveal();
     window.addEventListener("scroll", requestUpdate, { passive: true });
     window.addEventListener("resize", requestUpdate);
 
