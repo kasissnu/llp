@@ -30,13 +30,16 @@ export function TestimonialCarousel({ testimonials }: TestimonialCarouselProps) 
       <div className="testimonial-frame" key={active.name}>
         <div className="testimonial-image-card">
           <img src={active.image} alt={`${active.name} wedding`} />
-          <div className="testimonial-seal" aria-hidden="true">
-            <span>LL</span>
-          </div>
         </div>
-        <h2>{active.title}</h2>
-        <p>{active.quote}</p>
-        <span className="testimonial-name">{active.name}</span>
+        <div className="testimonial-copy">
+          <span className="quote-mark" aria-hidden="true">
+            "
+          </span>
+          <p className="section-label">Words from the day</p>
+          <h2>{active.title}</h2>
+          <p>{active.quote}</p>
+          <span className="testimonial-name">{active.name}</span>
+        </div>
       </div>
       <div className="testimonial-arrows" aria-label="Testimonial navigation">
         <button type="button" onClick={showPrevious} aria-label="Show previous testimonial">

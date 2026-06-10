@@ -30,7 +30,7 @@ export function ParallaxVideoBanner({ videoSrc, poster }: ParallaxVideoBannerPro
       const triggerDistance = Math.max(1, triggerEnd - triggerStart);
       const progress = (window.scrollY - triggerStart) / triggerDistance;
       const clamped = Math.min(1, Math.max(0, progress));
-      const mediaOffset = clamped * 20 - 10;
+      const mediaOffset = clamped * 4 - 2;
 
       section.style.setProperty("--video-parallax-y", `${mediaOffset.toFixed(2)}%`);
     };
@@ -71,11 +71,9 @@ export function ParallaxVideoBanner({ videoSrc, poster }: ParallaxVideoBannerPro
           <source src={videoSrc} type="video/mp4" />
         </video>
         <div className="video-banner-copy">
-          <p className="script">Explore</p>
-          <h2>Videography</h2>
+          <p className="section-label">Wedding films</p>
         </div>
-        <p className="video-banner-kicker">unfiltered memories</p>
-        <a href="#portfolio">View films</a>
+        <a href="/portfolio">See the films</a>
       </div>
     </section>
   );

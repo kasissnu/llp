@@ -1,0 +1,178 @@
+.bookingPage {
+  background: var(--paper);
+}
+
+.bookingHero {
+  position: relative;
+  min-height: clamp(420px, 58svh, 620px);
+  display: grid;
+  align-content: center;
+  gap: 22px;
+  padding: clamp(70px, 10vw, 118px) clamp(24px, 7vw, 92px);
+  overflow: hidden;
+  background:
+    linear-gradient(115deg, rgba(90, 9, 7, 0.08), transparent 44%),
+    var(--paper);
+}
+
+.bookingHero::before {
+  content: "";
+  position: absolute;
+  left: -8vw;
+  right: 8vw;
+  top: 50%;
+  height: 1px;
+  background: rgba(90, 9, 7, 0.2);
+  transform: rotate(-9deg);
+}
+
+.bookingHero > * {
+  position: relative;
+  z-index: 1;
+  width: min(780px, 100%);
+}
+
+.bookingHero h1 {
+  color: var(--brand);
+  font-family: "Butler Regular", Georgia, serif;
+  font-size: clamp(48px, 7vw, 92px);
+  font-weight: 400;
+  line-height: 0.94;
+  text-transform: uppercase;
+}
+
+.bookingHero p:not(.section-label) {
+  color: var(--ink);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  line-height: 1.9;
+}
+
+.formSection {
+  padding: clamp(54px, 8vw, 96px) clamp(18px, 6vw, 82px);
+  background: var(--surface);
+}
+
+.bookingForm {
+  width: min(980px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.bookingForm label,
+.bookingForm fieldset {
+  display: grid;
+  gap: 10px;
+  color: var(--brand);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.bookingForm input,
+.bookingForm select,
+.bookingForm textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  line-height: 1.7;
+  padding: 14px 12px;
+  text-transform: none;
+}
+
+.bookingForm input:focus,
+.bookingForm select:focus,
+.bookingForm textarea:focus {
+  outline: 1px solid var(--brand);
+}
+
+.bookingForm fieldset {
+  margin: 0;
+  padding: 18px;
+  border: 1px solid var(--border);
+}
+
+.bookingForm legend {
+  padding: 0 8px;
+}
+
+.bookingForm fieldset label {
+  grid-template-columns: 18px 1fr;
+  align-items: center;
+  color: var(--ink);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+}
+
+.bookingForm input[type="checkbox"] {
+  width: 14px;
+  height: 14px;
+  accent-color: var(--brand);
+}
+
+.formWide,
+.bookingForm button {
+  grid-column: 1 / -1;
+}
+
+.bookingForm button {
+  justify-self: start;
+  padding: 14px 20px;
+  background: var(--brand);
+  color: var(--surface);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  transition: background 180ms ease;
+}
+
+.bookingForm button:hover {
+  background: var(--brand-soft);
+}
+
+@media (max-width: 900px) {
+  .bookingHero {
+    min-height: 440px;
+    padding: 58px 24px;
+  }
+
+  .bookingHero h1 {
+    font-size: clamp(38px, 11vw, 58px);
+  }
+
+  .bookingForm {
+    grid-template-columns: 1fr;
+  }
+
+  .formSection {
+    padding: 46px 18px;
+  }
+
+  .bookingForm button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .bookingHero {
+    padding: 48px 18px;
+  }
+
+  .bookingHero p:not(.section-label) {
+    font-size: 10px;
+  }
+
+  .bookingForm {
+    gap: 18px;
+  }
+}

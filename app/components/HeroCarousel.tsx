@@ -6,29 +6,29 @@ type HeroCarouselProps = {
   images: string[];
 };
 
+const AUTO_ADVANCE_MS = 2800;
+
 export function HeroCarousel({ images }: HeroCarouselProps) {
   const imageCount = images.length;
   const [position, setPosition] = useState(imageCount);
   const [transitionEnabled, setTransitionEnabled] = useState(true);
-  const [isPaused, setIsPaused] = useState(false);
+  const [timerResetKey, setTimerResetKey] = useState(0);
 
   const loopedImages = useMemo(() => [...images, ...images, ...images], [images]);
 
   useEffect(() => {
-    if (isPaused) {
-      return;
-    }
-
     const timer = window.setInterval(() => {
-      goNext();
-    }, 4500);
+      setTransitionEnabled(true);
+      setPosition((current) => current + 1);
+    }, AUTO_ADVANCE_MS);
 
     return () => window.clearInterval(timer);
-  }, [isPaused, imageCount]);
+  }, [timerResetKey]);
 
   const moveTo = (direction: -1 | 1) => {
     setTransitionEnabled(true);
     setPosition((current) => current + direction);
+    setTimerResetKey((current) => current + 1);
   };
 
   const goPrev = () => {
@@ -53,13 +53,7 @@ export function HeroCarousel({ images }: HeroCarouselProps) {
 
   return (
     <>
-      <div
-        className="hero-frame"
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
-        onFocus={() => setIsPaused(true)}
-        onBlur={() => setIsPaused(false)}
-      >
+      <div className="hero-frame">
         <div className="hero-gallery-viewport" aria-live="polite">
           <div
             className="hero-gallery-track"
@@ -85,10 +79,13 @@ export function HeroCarousel({ images }: HeroCarouselProps) {
         </div>
       </div>
       <div className="gallery-controls">
-        <span>Portfolio</span>
+        <div>
+          <span>Bangalore stories</span>
+          <small>Three frames, one rhythm</small>
+        </div>
         <div className="gallery-buttons">
           <button type="button" onClick={goPrev} aria-label="Show previous wedding image">
-            Prev
+            Previous
           </button>
           <button type="button" onClick={goNext} aria-label="Show next wedding image">
             Next
