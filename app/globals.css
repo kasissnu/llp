@@ -1767,10 +1767,19 @@ p {
 .service-grid {
   --service-nav-offset: 96px;
   --service-stack-step: clamp(72px, 5.8vw, 94px);
+  --service-entry-space: clamp(63px, 10.08svh, 123px);
+  --service-entry-bg: #686b2d;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   padding-bottom: 0;
   background: var(--ink);
+}
+
+.service-grid::before {
+  content: "";
+  display: block;
+  height: var(--service-entry-space);
+  background: var(--service-entry-bg);
 }
 
 .service-card {
@@ -1802,6 +1811,7 @@ p {
 .service-card:nth-child(4) {
   --service-stack-offset: calc(var(--service-stack-step) * 3);
   --service-visible-stack: calc(var(--service-stack-step) * 5);
+  overflow: visible;
   z-index: 4;
 }
 
@@ -1847,9 +1857,9 @@ p {
 .service-card-title {
   height: var(--service-stack-step);
   min-height: 0;
-  display: grid;
+  display: flex;
   align-items: center;
-  padding: clamp(10px, 1.5vw, 18px) clamp(28px, 14vw, 390px);
+  padding: 0 clamp(28px, 14vw, 390px);
   cursor: default;
 }
 
@@ -1857,8 +1867,9 @@ p {
   color: var(--service-text);
   font-family: "Butler Regular", Georgia, serif;
   font-size: clamp(34px, 4.2vw, 58px);
-  line-height: 0.9;
+  line-height: 1;
   text-transform: uppercase;
+  transform: translateY(0.12em);
 }
 
 .service-card-body {
@@ -1870,6 +1881,16 @@ p {
   padding-inline: clamp(28px, 14vw, 390px);
   padding-top: clamp(16px, 2vw, 28px);
   padding-bottom: clamp(18px, 2.4vw, 32px);
+}
+
+.service-card:nth-child(4)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(var(--service-stack-step) * -1);
+  height: var(--service-stack-step);
+  background: var(--service-bg);
 }
 
 .service-card-copy {
@@ -3299,7 +3320,7 @@ p {
   }
 
   .service-card-title {
-    padding: 28px 24px;
+    padding: 0 24px;
   }
 
   .service-card {
@@ -4014,6 +4035,14 @@ p {
 }
 
 @media (max-width: 1024px) {
+  .service-grid::before {
+    display: none;
+  }
+
+  .service-card:nth-child(4)::after {
+    display: none;
+  }
+
   .service-card {
     position: relative;
     top: auto !important;
