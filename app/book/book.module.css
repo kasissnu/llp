@@ -80,6 +80,7 @@
 .bookingForm textarea {
   width: 100%;
   min-width: 0;
+  max-width: 100%;
   border: 1px solid var(--border);
   border-radius: 0;
   background: var(--paper);
@@ -159,6 +160,7 @@
 
   .bookingForm {
     grid-template-columns: 1fr;
+    width: min(680px, 100%);
   }
 
   .formSection {
@@ -202,6 +204,7 @@
   .bookingForm select,
   .bookingForm textarea {
     padding: 12px 10px;
+    font-size: 16px;
   }
 }
 

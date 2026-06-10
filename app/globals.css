@@ -4304,6 +4304,439 @@ p {
   }
 }
 
+/* Final responsive layer: keep page-specific art direction, but normalize shared layouts. */
+@media (min-width: 1025px) {
+  .service-grid {
+    padding-bottom: var(--service-stack-step);
+  }
+
+  .portfolio-index,
+  .image-gallery-grid,
+  .album-gallery-grid {
+    grid-auto-rows: minmax(0, auto);
+  }
+}
+
+@media (max-width: 1180px) {
+  .footer-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(140px, 0.55fr) minmax(280px, 1.2fr);
+  }
+
+  .reviews-section {
+    grid-template-columns: minmax(180px, 240px) minmax(280px, 460px) minmax(220px, 320px);
+    padding-inline: 28px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .service-grid {
+    padding-bottom: 0;
+  }
+
+  .service-card {
+    position: relative;
+    top: auto !important;
+    overflow: hidden;
+  }
+
+  .service-card:nth-child(4) {
+    overflow: hidden;
+  }
+
+  .service-grid::before,
+  .service-card:nth-child(4)::after {
+    display: none;
+  }
+
+  .service-card-body {
+    min-height: auto;
+  }
+
+  .about-chenmay-profile,
+  .about-story-stats,
+  .reviews-section,
+  .process-section {
+    grid-template-columns: 1fr;
+  }
+
+  .reviews-section > img,
+  .video-card {
+    width: min(520px, 100%);
+  }
+
+  .portfolio-album-grid,
+  .album-gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  h1,
+  h2 {
+    overflow-wrap: anywhere;
+  }
+
+  .kind-words,
+  .portfolio-carousel,
+  .hero-image {
+    height: auto;
+  }
+
+  .hero-image {
+    min-height: calc(100svh - 96px);
+  }
+
+  .testimonial-frame,
+  .reviews-section,
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial-image-card {
+    width: min(380px, 100%);
+    justify-self: center;
+  }
+
+  .reviews-copy {
+    order: -1;
+  }
+
+  .reviews-section > img {
+    margin-top: 0;
+    justify-self: end;
+  }
+
+  .footer-brand,
+  .footer-links,
+  .footer-contact {
+    grid-template-rows: none;
+  }
+}
+
+@media (max-width: 720px) {
+  main {
+    padding-top: 118px;
+  }
+
+  section {
+    scroll-margin-top: 130px;
+  }
+
+  .main-menu {
+    height: auto;
+    min-height: 118px;
+  }
+
+  .menu-line.lower {
+    left: 10px;
+    right: 10px;
+  }
+
+  .menu-links {
+    height: auto;
+    min-height: 118px;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-rows: 62px auto;
+    gap: 6px 8px;
+    padding: 8px 10px 10px;
+  }
+
+  .nav-brand {
+    grid-column: 1 / 2;
+    grid-row: 1;
+    width: 58px;
+    height: 42px;
+    align-self: center;
+    justify-self: start;
+  }
+
+  .nav-title {
+    grid-column: 2 / 6;
+    grid-row: 1;
+    align-self: center;
+    justify-self: center;
+    min-width: 0;
+  }
+
+  .nav-title span:first-child {
+    font-size: clamp(18px, 5.2vw, 24px);
+    letter-spacing: 0.04em;
+  }
+
+  .nav-title span:last-child {
+    font-size: clamp(18px, 5vw, 22px);
+  }
+
+  .nav-socials {
+    grid-column: 6 / 7;
+    grid-row: 1;
+    align-self: center;
+    justify-self: end;
+    gap: 5px;
+  }
+
+  .nav-socials a {
+    width: 28px;
+    height: 28px;
+  }
+
+  .nav-links {
+    display: contents;
+  }
+
+  .nav-links-left a,
+  .nav-links-right a {
+    grid-row: 2;
+    min-width: 0;
+    justify-self: center;
+    padding: 9px 0 2px;
+    font-size: 8px;
+    letter-spacing: 0.05em;
+    line-height: 1.2;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .nav-links-left a:nth-child(1) {
+    grid-column: 1;
+  }
+
+  .nav-links-left a:nth-child(2) {
+    grid-column: 2;
+  }
+
+  .nav-links-left a:nth-child(3) {
+    grid-column: 3;
+  }
+
+  .nav-links-right a:nth-child(1) {
+    grid-column: 4;
+  }
+
+  .nav-links-right a:nth-child(2) {
+    grid-column: 5;
+  }
+
+  .nav-links-right a:nth-child(3) {
+    grid-column: 6;
+  }
+
+  .hero-image {
+    min-height: calc(100svh - 118px);
+  }
+
+  .hero-frame {
+    width: 100%;
+    height: min(420px, calc(100% - 118px));
+  }
+
+  .gallery-controls,
+  .hero-side-text {
+    width: calc(100% - 24px);
+  }
+
+  .about-section,
+  .reviews-section,
+  .process-section,
+  .collection-section,
+  .footer {
+    padding-inline: 18px;
+  }
+
+  .split-showcase,
+  .portfolio-index,
+  .collection-grid,
+  .image-gallery-grid,
+  .film-gallery-grid,
+  .portfolio-album-grid,
+  .album-gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .collection-card,
+  .image-gallery-card,
+  .film-gallery-card,
+  .portfolio-album-card,
+  .album-gallery-card {
+    min-height: clamp(280px, 58svh, 420px);
+  }
+
+  .service-card-title,
+  .service-card-body {
+    padding-inline: 18px;
+  }
+
+  .service-card-actions a {
+    min-height: 54px;
+    gap: 14px;
+    letter-spacing: 0.1em;
+  }
+
+  .service-card-body img {
+    height: clamp(220px, 36svh, 320px);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .footer-brand,
+  .footer-links,
+  .footer-contact {
+    display: grid;
+    grid-column: auto;
+  }
+
+  .footer-logo {
+    width: 150px;
+    height: 78px;
+  }
+
+  .footer h3 {
+    width: min(420px, 100%);
+    font-size: clamp(20px, 6vw, 28px);
+  }
+
+  .footer-links h4,
+  .footer-contact h4 {
+    padding-top: 0;
+  }
+
+  .footer-links nav,
+  .footer-contact-row:first-of-type {
+    margin-top: 0;
+  }
+
+  .footer-contact-row {
+    grid-template-columns: 22px minmax(0, 1fr);
+  }
+
+  .footer-contact-row p,
+  .footer nav a,
+  .footer-credits p {
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 520px) {
+  .section-label {
+    letter-spacing: 0.14em;
+  }
+
+  .page-hero,
+  .details-hero,
+  .portfolio-album-hero,
+  .booking-banner {
+    min-height: 340px;
+  }
+
+  .page-hero {
+    padding: 46px 18px;
+  }
+
+  .details-hero {
+    align-content: end;
+  }
+
+  .hero-brand-title {
+    font-size: clamp(24px, 9vw, 36px);
+  }
+
+  .gallery-controls {
+    bottom: 34px;
+    gap: 10px;
+  }
+
+  .gallery-controls button {
+    min-width: 50px;
+    padding-inline: 6px;
+    letter-spacing: 0.1em;
+  }
+
+  .about-image.primary,
+  .about-image.secondary,
+  .reviews-section > img,
+  .video-card,
+  .testimonial-image-card {
+    width: 100%;
+  }
+
+  .about-copy,
+  .testimonial-copy {
+    padding: 20px 18px;
+  }
+
+  .split-panel {
+    min-height: 300px;
+  }
+
+  .booking-banner {
+    padding: 56px 18px;
+  }
+
+  .booking-banner h2 {
+    font-size: clamp(30px, 10vw, 44px);
+  }
+
+  .booking-banner p:not(.section-label) {
+    font-size: 9px;
+    letter-spacing: 0.1em;
+  }
+
+  .portfolio-collection-title h1,
+  .about-photographer-hero h1,
+  .portfolio-album-hero h1 {
+    font-size: clamp(56px, 17vw, 92px);
+  }
+
+  .portfolio-film-feature {
+    padding: 88px 14px 44px;
+  }
+
+  .footer {
+    padding: 28px 16px 18px;
+  }
+
+  .footer-credits {
+    display: grid;
+    gap: 6px;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 380px) {
+  .menu-links {
+    padding-inline: 8px;
+    gap: 5px;
+  }
+
+  .nav-brand {
+    width: 50px;
+    height: 36px;
+  }
+
+  .nav-socials {
+    gap: 3px;
+  }
+
+  .nav-socials a {
+    width: 25px;
+    height: 25px;
+  }
+
+  .nav-links-left a,
+  .nav-links-right a {
+    font-size: 7px;
+    letter-spacing: 0.02em;
+  }
+
+  .service-card-title span {
+    font-size: 30px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
