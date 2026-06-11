@@ -121,18 +121,549 @@
   letter-spacing: 0.1em;
 }
 
-.bookingForm input[type="checkbox"] {
+.bookingForm input[type="checkbox"],
+.bookingForm input[type="radio"] {
   width: 14px;
   height: 14px;
   accent-color: var(--brand);
 }
 
 .formWide,
-.bookingForm button {
+.quoteEstimator,
+.bookingForm > button {
   grid-column: 1 / -1;
 }
 
-.bookingForm button {
+.quoteEstimator {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 340px);
+  align-items: stretch;
+  gap: 0;
+  border: 1px solid var(--border);
+  background: var(--paper);
+  overflow: visible;
+}
+
+.quoteHeader {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 24px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.quoteHeader div {
+  display: grid;
+  gap: 8px;
+}
+
+.quoteHeader span,
+.quoteResultIntro > span,
+.quoteResultTotal > span {
+  color: var(--brand);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.quoteHeader h2 {
+  margin: 0;
+  color: var(--brand);
+  font-family: "Butler Regular", Georgia, serif;
+  font-size: clamp(34px, 4.2vw, 58px);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 0.96;
+  text-transform: uppercase;
+}
+
+.quoteHeader p,
+.quoteResult p {
+  max-width: 420px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 1.75;
+  text-transform: none;
+}
+
+.quoteControls {
+  min-width: 0;
+  display: grid;
+  gap: 12px;
+  padding: 24px;
+}
+
+.quoteAccordionSection {
+  min-width: 0;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.quoteAccordionHeader {
+  width: 100%;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto 24px;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  border: 0;
+  background: var(--paper);
+  color: var(--brand);
+  text-align: left;
+}
+
+.quoteAccordionHeader > span:first-child {
+  min-width: 0;
+  color: var(--brand);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.quoteAccordionHeader small {
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1.5;
+  text-align: right;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.quoteAccordionPanel {
+  padding: 18px;
+  border-top: 1px solid var(--border);
+  background: rgba(255, 249, 232, 0.36);
+}
+
+.quoteChevron {
+  width: 12px;
+  height: 12px;
+  justify-self: end;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  color: currentColor;
+  transform: rotate(45deg);
+  transition: transform 180ms ease;
+}
+
+.quoteAccordionHeader[aria-expanded="true"] .quoteChevron,
+.eventBuilderHeader[aria-expanded="true"] .quoteChevron {
+  transform: rotate(225deg);
+}
+
+.quoteOptionGroup {
+  min-width: 0;
+  align-content: start;
+  padding: 0;
+  border: 0;
+}
+
+.bookingForm .quoteOptionGroup {
+  padding: 0;
+  border: 0;
+}
+
+.quoteOptionGroup legend {
+  margin-bottom: 10px;
+  padding: 0;
+}
+
+.quoteChoiceGrid,
+.quoteAddonGrid,
+.quoteCoverageGrid,
+.quoteEventGrid,
+.quoteMetaGrid,
+.teamQuantityGrid {
+  display: grid;
+  gap: 10px;
+}
+
+.quoteChoiceGrid {
+  grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
+}
+
+.quoteEventGrid {
+  grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
+}
+
+.quoteAddonGrid {
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+}
+
+.quoteMetaGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.teamQuantityGrid {
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.quoteCoverageGrid {
+  grid-template-columns: minmax(180px, 260px);
+}
+
+.quoteChoice,
+.quoteAddon,
+.quotePill {
+  min-width: 0;
+  min-height: 58px;
+  display: grid;
+  align-items: center;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.quoteChoice {
+  grid-template-columns: 18px minmax(0, 1fr);
+  gap: 12px;
+  padding: 14px;
+}
+
+.quotePill {
+  grid-template-columns: 16px minmax(0, 1fr);
+  gap: 10px;
+  min-height: 48px;
+  padding: 12px;
+}
+
+.quoteAddon {
+  grid-template-columns: 18px minmax(0, 1fr) auto;
+  gap: 10px;
+  padding: 12px 14px;
+}
+
+.quoteChoice:has(input:checked),
+.quoteAddon:has(input:checked),
+.quotePill:has(input:checked) {
+  border-color: var(--brand);
+  background: rgba(125, 81, 60, 0.08);
+}
+
+.quoteChoice span,
+.quoteAddon span,
+.quotePill span {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
+  color: var(--ink);
+  min-width: 0;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.eventBuilderList {
+  display: grid;
+  gap: 12px;
+}
+
+.eventBuilderIntro {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  color: var(--brand);
+}
+
+.eventBuilderIntro span {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.eventBuilderIntro small {
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.eventBuilder {
+  display: grid;
+  gap: 0;
+  padding: 0;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.eventBuilderOpen {
+  background: var(--paper);
+}
+
+.eventBuilderHeader {
+  width: 100%;
+  min-width: 0;
+  appearance: none;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(104px, auto) 24px;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  border: 0;
+  background: var(--paper);
+  color: var(--ink);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+}
+
+.eventBuilderOpen .eventBuilderHeader {
+  border-bottom: 1px solid var(--border);
+  background: var(--paper);
+  color: var(--brand);
+}
+
+.eventBuilderSummary {
+  min-width: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.eventBuilderSummary > span {
+  color: var(--brand);
+  font-family: "Butler Regular", Georgia, serif;
+  font-size: clamp(24px, 2.4vw, 34px);
+  font-weight: 400;
+  line-height: 1;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+.eventBuilderSummary small {
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.45;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+.eventBuilderOpen .eventBuilderSummary > span {
+  color: var(--brand);
+}
+
+.eventBuilderOpen .eventBuilderSummary small {
+  color: var(--muted);
+}
+
+.eventBuilderHeader strong {
+  color: var(--ink);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  line-height: 1.4;
+  text-align: right;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.eventBuilderPanel {
+  display: grid;
+  gap: 18px;
+  padding: 18px;
+}
+
+.quoteAddon small {
+  grid-column: 3;
+  grid-row: 1;
+  align-self: center;
+  justify-self: end;
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.teamQuantityGrid input {
+  text-align: center;
+}
+
+.teamQuantity {
+  min-height: 58px;
+  display: grid;
+  grid-template-columns: minmax(max-content, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.bookingForm .teamQuantity {
+  grid-template-columns: minmax(max-content, 1fr) auto;
+  align-items: center;
+  color: var(--ink);
+  font-size: inherit;
+  letter-spacing: 0;
+}
+
+.teamQuantity span {
+  min-width: max-content;
+  color: var(--ink);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.45;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.teamQuantity input {
+  width: 28px;
+  min-width: 0;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.teamStepper {
+  display: grid;
+  grid-template-columns: 24px 28px 24px;
+  align-items: center;
+  gap: 2px;
+  background: transparent;
+}
+
+.teamStepper button {
+  width: 24px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  background: transparent;
+  color: var(--brand);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.quoteResult {
+  position: static;
+  top: auto;
+  align-self: stretch;
+  min-width: 0;
+  min-height: 100%;
+  height: 100%;
+  max-height: none;
+  overflow: visible;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  align-content: stretch;
+  gap: 18px;
+  padding: 24px;
+  border-left: 1px solid var(--border);
+  background: var(--brand);
+  color: var(--surface);
+}
+
+.quoteResult > span,
+.quoteResultIntro p {
+  color: rgba(255, 249, 232, 0.78);
+}
+
+.quoteResultIntro {
+  display: grid;
+  gap: 10px;
+}
+
+.quoteResultIntro h3 {
+  margin: 0;
+  color: var(--surface);
+  font-family: "Butler Regular", Georgia, serif;
+  font-size: clamp(30px, 3vw, 44px);
+  font-weight: 400;
+  line-height: 0.98;
+  text-transform: uppercase;
+}
+
+.quoteResultIntro > span,
+.quoteResultTotal > span {
+  color: rgba(255, 249, 232, 0.78);
+}
+
+.quoteResultIntro p {
+  max-width: none;
+}
+
+.quoteResultTotal {
+  display: grid;
+  gap: 8px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 249, 232, 0.34);
+}
+
+.quoteResultTotal strong {
+  color: var(--surface);
+  font-family: "Butler Regular", Georgia, serif;
+  font-size: clamp(34px, 3.8vw, 54px);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 0.95;
+  overflow-wrap: anywhere;
+}
+
+.quoteResult ul {
+  align-self: start;
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.quoteResult li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) max-content;
+  gap: 12px;
+  border-top: 1px solid rgba(255, 249, 232, 0.24);
+  padding-top: 10px;
+  color: var(--surface);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.quoteResult li span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.quoteResult li span:last-child {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.quoteResult p {
+  margin: 0;
+}
+
+.bookingForm > button {
   justify-self: start;
   padding: 14px 20px;
   background: var(--brand);
@@ -144,8 +675,109 @@
   transition: background 180ms ease;
 }
 
-.bookingForm button:hover {
+.bookingForm > button:hover {
   background: var(--brand-soft);
+}
+
+.faqSection {
+  display: grid;
+  grid-template-columns: minmax(0, 420px) minmax(320px, 620px);
+  justify-content: center;
+  align-items: start;
+  gap: clamp(32px, 6vw, 84px);
+  padding: clamp(56px, 8vw, 104px) clamp(18px, 6vw, 82px);
+  background:
+    linear-gradient(110deg, rgba(44, 41, 37, 0.06), transparent 48%),
+    var(--paper);
+}
+
+.faqIntro {
+  text-align: left;
+}
+
+.faqIntro h2 {
+  margin-top: 14px;
+  color: var(--brand);
+  font-family: "Butler Regular", Georgia, serif;
+  font-size: clamp(34px, 4vw, 56px);
+  font-weight: 400;
+  line-height: 0.98;
+  text-transform: uppercase;
+}
+
+.faqList {
+  display: grid;
+  counter-reset: faq;
+}
+
+.faqList details {
+  counter-increment: faq;
+  border-bottom: 1px solid var(--brand);
+  background: transparent;
+}
+
+.faqList details[open] {
+  background: transparent;
+}
+
+.faqList summary {
+  position: relative;
+  min-height: 82px;
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr) 46px;
+  align-items: center;
+  gap: 18px;
+  padding: 20px 0;
+  color: var(--brand);
+  cursor: pointer;
+  font-size: clamp(11px, 0.9vw, 13px);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.65;
+  text-transform: uppercase;
+  list-style: none;
+}
+
+.faqList summary::before {
+  content: counter(faq, decimal-leading-zero);
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.faqList summary::-webkit-details-marker {
+  display: none;
+}
+
+.faqList summary::after {
+  content: "+";
+  justify-self: end;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--brand);
+  border-radius: 50%;
+  color: var(--brand);
+  font-family: Arial, sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+.faqList details[open] summary::after {
+  content: "−";
+}
+
+.faqList p {
+  margin: 0;
+  padding: 0 64px 28px 56px;
+  color: var(--ink);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  line-height: 1.9;
 }
 
 @media (max-width: 900px) {
@@ -163,12 +795,45 @@
     width: min(680px, 100%);
   }
 
+  .quoteEstimator,
+  .quoteControls {
+    grid-template-columns: 1fr;
+  }
+
+  .quoteControls {
+    order: 3;
+  }
+
+  .quoteChoiceGrid,
+  .quoteEventGrid,
+  .teamQuantityGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .quoteHeader {
+    display: grid;
+  }
+
+  .quoteResult {
+    position: relative;
+    top: auto;
+    order: 2;
+    max-height: none;
+    border-left: 0;
+    border-top: 1px solid var(--border);
+  }
+
   .formSection {
     padding: 46px 18px;
   }
 
-  .bookingForm button {
+  .bookingForm > button {
     width: 100%;
+  }
+
+  .faqSection {
+    grid-template-columns: 1fr;
+    padding: 54px 24px;
   }
 }
 
@@ -194,6 +859,76 @@
     gap: 18px;
   }
 
+  .quoteHeader,
+  .quoteControls,
+  .quoteResult {
+    padding: 18px;
+  }
+
+  .quoteChoiceGrid,
+  .quoteMetaGrid,
+  .quoteAddonGrid,
+  .quoteCoverageGrid,
+  .quoteEventGrid,
+  .teamQuantityGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .eventBuilder {
+    padding: 0;
+  }
+
+  .eventBuilderHeader {
+    align-items: start;
+    grid-template-columns: minmax(0, 1fr) 32px;
+    gap: 10px;
+    padding: 14px;
+  }
+
+  .eventBuilderHeader strong {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-self: start;
+    text-align: left;
+  }
+
+  .eventBuilderHeader .quoteChevron {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .eventBuilderPanel {
+    padding: 14px;
+  }
+
+  .quoteAddon {
+    grid-template-columns: 18px minmax(0, 1fr);
+  }
+
+  .quoteAddon small {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: start;
+    white-space: normal;
+  }
+
+  .quoteResult strong {
+    font-size: clamp(32px, 10vw, 44px);
+  }
+
+  .quoteResult li {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .quoteResult li span:last-child {
+    text-align: left;
+  }
+
+  .bookingForm .teamQuantity {
+    grid-template-columns: minmax(max-content, 1fr) auto;
+  }
+
   .bookingForm label,
   .bookingForm fieldset {
     font-size: 9px;
@@ -205,6 +940,37 @@
   .bookingForm textarea {
     padding: 12px 10px;
     font-size: 16px;
+  }
+
+  .faqSection {
+    padding: 46px 18px;
+  }
+
+  .faqIntro h2 {
+    font-size: clamp(32px, 10vw, 46px);
+  }
+
+  .faqList summary {
+    min-height: 76px;
+    grid-template-columns: 34px minmax(0, 1fr) 38px;
+    gap: 12px;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+  }
+
+  .faqList summary::after {
+    width: 30px;
+    height: 30px;
+    font-size: 24px;
+  }
+
+  .faqList p {
+    padding: 0 42px 24px 46px;
+  }
+
+  .faqList summary {
+    font-size: 10px;
+    letter-spacing: 0.1em;
   }
 }
 
@@ -227,9 +993,27 @@
     padding: 14px;
   }
 
-  .bookingForm button {
+  .bookingForm .quoteOptionGroup {
+    padding: 0;
+  }
+
+  .bookingForm > button {
     min-height: 48px;
     padding-inline: 14px;
     letter-spacing: 0.14em;
+  }
+
+  .faqSection {
+    padding: 40px 14px;
+  }
+
+  .faqList summary {
+    grid-template-columns: 30px minmax(0, 1fr) 34px;
+    gap: 10px;
+  }
+
+  .faqList p {
+    padding-left: 40px;
+    padding-right: 36px;
   }
 }

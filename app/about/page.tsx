@@ -10,7 +10,9 @@ export default function AboutPage() {
       <section className="about-photographer-hero">
         <div className="about-sticky-reveal">
           <div className="about-sticky-title">
-            <h1>about the photographer</h1>
+            <h1>
+              <span>about the</span> <span>photographer</span>
+            </h1>
           </div>
           <div className="about-intro-images" aria-label="Leading Lines wedding moments">
             <div className="about-intro-feature">

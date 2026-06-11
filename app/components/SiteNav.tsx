@@ -6,7 +6,7 @@ const navLeft = [
 
 const navRight = [
   { label: "Portfolio", href: "/portfolio" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Contact", href: "#contact" },
   { label: "Book Us", href: "/book" },
 ];
 
@@ -21,7 +21,7 @@ export function SiteNav() {
       <div className="menu-line" />
       <div className="menu-links">
         <a className="nav-brand" href="/" aria-label="Leading Lines Photography home">
-          <img src="/logo-leading-lines.svg" alt="Leading Lines Photography" />
+          <img src="/logo-leading-lines.png" alt="Leading Lines Photography" />
         </a>
         <div className="nav-links nav-links-left" aria-label="Primary page links">
           {navLeft.map((item) => (

@@ -15,7 +15,7 @@ export function SiteFooter({ headline, tone = "home" }: SiteFooterProps) {
       <div className="footer-grid">
         <section className="footer-brand">
           <a className="footer-logo" href="/" aria-label="Leading Lines Photography home">
-            <img src="/logo-leading-lines-light.svg" alt="Leading Lines Photography" />
+            <img src="/footer-logo-leading-lines.png" alt="Leading Lines Photography" />
           </a>
           <h3>
             <i>{headline}</i>
@@ -48,7 +48,7 @@ export function SiteFooter({ headline, tone = "home" }: SiteFooterProps) {
             <a href="/about">About</a>
             <a href="/details">Details</a>
             <a href="/portfolio">Portfolio</a>
-            <a href="/#contact">Contact Us</a>
+            <a href="#contact">Contact Us</a>
             <a href="/book">Book</a>
           </nav>
         </section>
