@@ -2,7 +2,7 @@ import { ParallaxBookingBanner } from "../components/ParallaxBookingBanner";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteNav } from "../components/SiteNav";
 import { TestimonialCarousel } from "../components/TestimonialCarousel";
-import { QuoteEstimator } from "./QuoteEstimator";
+import { BookingForm } from "./BookingForm";
 import styles from "./book.module.css";
 
 const testimonials = [
@@ -89,31 +89,7 @@ export default function BookPage() {
       />
 
       <section className={styles.formSection} id="quote-builder">
-        <form
-          className={styles.bookingForm}
-          action="mailto:hello@leadinglinesphotography.com"
-          method="post"
-          encType="text/plain"
-        >
-          <label>
-            Your name
-            <input name="name" type="text" required />
-          </label>
-          <label>
-            Phone number
-            <input name="phone" type="tel" required />
-          </label>
-          <label>
-            Location
-            <input name="location" type="text" placeholder="Example: Bangalore, Mysore, Goa" required />
-          </label>
-          <label>
-            Estimated guest count
-            <input name="guest-count" type="number" min="1" />
-          </label>
-          <QuoteEstimator />
-          <button type="submit">Send booking enquiry</button>
-        </form>
+        <BookingForm />
       </section>
 
       <TestimonialCarousel testimonials={testimonials} />

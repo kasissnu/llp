@@ -55,7 +55,7 @@
 }
 
 .bookingForm {
-  width: min(980px, 100%);
+  width: min(1080px, 100%);
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -136,7 +136,7 @@
 
 .quoteEstimator {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(300px, 340px);
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 340px);
   align-items: stretch;
   gap: 0;
   border: 1px solid var(--border);
@@ -210,7 +210,7 @@
   width: 100%;
   min-width: 0;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto 24px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, auto) 24px;
   align-items: center;
   gap: 14px;
   padding: 16px 18px;
@@ -231,6 +231,7 @@
 }
 
 .quoteAccordionHeader small {
+  min-width: 0;
   color: var(--muted);
   font-size: 9px;
   font-weight: 700;
@@ -291,15 +292,15 @@
 }
 
 .quoteChoiceGrid {
-  grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(148px, 100%), 1fr));
 }
 
 .quoteEventGrid {
-  grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(132px, 100%), 1fr));
 }
 
 .quoteAddonGrid {
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(210px, 100%), 1fr));
 }
 
 .quoteMetaGrid {
@@ -307,11 +308,11 @@
 }
 
 .teamQuantityGrid {
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
 }
 
 .quoteCoverageGrid {
-  grid-template-columns: minmax(180px, 260px);
+  grid-template-columns: minmax(min(180px, 100%), 260px);
 }
 
 .quoteChoice,
@@ -500,7 +501,7 @@
 .teamQuantity {
   min-height: 58px;
   display: grid;
-  grid-template-columns: minmax(max-content, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   gap: 10px;
   padding: 10px 12px;
@@ -509,7 +510,7 @@
 }
 
 .bookingForm .teamQuantity {
-  grid-template-columns: minmax(max-content, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   color: var(--ink);
   font-size: inherit;
@@ -517,7 +518,7 @@
 }
 
 .teamQuantity span {
-  min-width: max-content;
+  min-width: 0;
   color: var(--ink);
   font-size: 9px;
   font-weight: 700;
@@ -780,6 +781,25 @@
   line-height: 1.9;
 }
 
+@media (max-width: 1080px) {
+  .quoteEstimator {
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 300px);
+  }
+
+  .quoteControls,
+  .quoteResult {
+    padding: 20px;
+  }
+
+  .quoteHeader {
+    padding: 22px;
+  }
+
+  .quoteResultIntro h3 {
+    font-size: clamp(28px, 3.6vw, 40px);
+  }
+}
+
 @media (max-width: 900px) {
   .bookingHero {
     min-height: 440px;
@@ -818,7 +838,10 @@
     position: relative;
     top: auto;
     order: 2;
+    height: auto;
+    min-height: 0;
     max-height: none;
+    grid-template-rows: auto auto auto;
     border-left: 0;
     border-top: 1px solid var(--border);
   }
@@ -865,6 +888,19 @@
     padding: 18px;
   }
 
+  .quoteAccordionHeader {
+    grid-template-columns: minmax(0, 1fr) 22px;
+    gap: 12px;
+  }
+
+  .quoteAccordionHeader small {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-self: start;
+    text-align: left;
+    white-space: normal;
+  }
+
   .quoteChoiceGrid,
   .quoteMetaGrid,
   .quoteAddonGrid,
@@ -880,7 +916,7 @@
 
   .eventBuilderHeader {
     align-items: start;
-    grid-template-columns: minmax(0, 1fr) 32px;
+    grid-template-columns: minmax(0, 1fr) 24px;
     gap: 10px;
     padding: 14px;
   }
@@ -926,7 +962,7 @@
   }
 
   .bookingForm .teamQuantity {
-    grid-template-columns: minmax(max-content, 1fr) auto;
+    grid-template-columns: minmax(0, 1fr) auto;
   }
 
   .bookingForm label,
@@ -986,7 +1022,45 @@
   }
 
   .formSection {
-    padding: 38px 14px;
+    padding: 34px 10px;
+  }
+
+  .bookingForm {
+    gap: 14px;
+  }
+
+  .quoteHeader,
+  .quoteControls,
+  .quoteResult {
+    padding: 14px;
+  }
+
+  .quoteHeader h2 {
+    font-size: 30px;
+  }
+
+  .quoteAccordionHeader {
+    padding: 14px 12px;
+  }
+
+  .quoteAccordionPanel,
+  .eventBuilderPanel {
+    padding: 12px;
+  }
+
+  .eventBuilderHeader {
+    padding: 12px;
+  }
+
+  .teamQuantity {
+    grid-template-columns: 1fr auto;
+    gap: 8px;
+    padding: 9px 10px;
+  }
+
+  .teamQuantity span {
+    font-size: 8px;
+    letter-spacing: 0.04em;
   }
 
   .bookingForm fieldset {
@@ -1001,6 +1075,14 @@
     min-height: 48px;
     padding-inline: 14px;
     letter-spacing: 0.14em;
+  }
+
+  .quoteResultIntro h3 {
+    font-size: 28px;
+  }
+
+  .quoteResultTotal strong {
+    font-size: 34px;
   }
 
   .faqSection {
