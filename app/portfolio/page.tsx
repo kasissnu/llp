@@ -2,6 +2,20 @@ import { ParallaxBookingBanner } from "../components/ParallaxBookingBanner";
 import { PortfolioCarousel } from "../components/PortfolioCarousel";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteNav } from "../components/SiteNav";
+import { createPageMetadata } from "../seo";
+
+export const metadata = createPageMetadata({
+  title: "Wedding Portfolio",
+  description:
+    "View Leading Lines Photography wedding and pre-wedding stills and films, including Bangalore ceremonies, receptions, portraits, and family celebrations.",
+  path: "/portfolio",
+  keywords: [
+    "Bangalore wedding photography portfolio",
+    "wedding films portfolio Bangalore",
+    "pre wedding photos Bangalore",
+    "Leading Lines Photography portfolio",
+  ],
+});
 
 const stories = [
   {
@@ -48,7 +62,7 @@ const collections = [
     links: [
       {
         title: "Stills",
-        href: "/portfolio/weddings/stills",
+        href: "/portfolio/weddings/images",
         image:
           "https://images.unsplash.com/photo-1529634597503-139d3726fed5?auto=format&fit=crop&w=1000&q=85",
       },
@@ -65,7 +79,7 @@ const collections = [
     links: [
       {
         title: "Stills",
-        href: "/portfolio/prewedding/stills",
+        href: "/portfolio/prewedding/images",
         image:
           "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1000&q=85",
       },
@@ -95,7 +109,7 @@ export default function PortfolioPage() {
             <div className="collection-grid">
               {collection.links.map((item) => (
                 <a className="collection-card" href={item.href} key={item.title}>
-                  <img src={item.image} alt={`${item.title} portfolio`} />
+                  <img src={item.image} alt={`${item.title} portfolio`} loading="lazy" decoding="async" />
                   <span>{item.title}</span>
                 </a>
               ))}

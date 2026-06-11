@@ -1,7 +1,9 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { ParallaxBookingBanner } from "../../../components/ParallaxBookingBanner";
 import { SiteFooter } from "../../../components/SiteFooter";
 import { SiteNav } from "../../../components/SiteNav";
+import { createPageMetadata } from "../../../seo";
 import { eventLabels, filmEmbeds, portfolioAlbums } from "../../portfolio-data";
 
 const labels = {
@@ -16,6 +18,33 @@ type PortfolioCollectionPageProps = {
     medium: "images" | "stills" | "films";
   }>;
 };
+
+export function generateStaticParams() {
+  return (["weddings", "prewedding"] as const).flatMap((event) =>
+    (["images", "films"] as const).map((medium) => ({ event, medium })),
+  );
+}
+
+export async function generateMetadata({ params }: PortfolioCollectionPageProps): Promise<Metadata> {
+  const { event, medium } = await params;
+  const eventLabel = eventLabels[event] ?? "Wedding";
+  const mediumLabel = labels[medium] ?? "Images";
+  const canonicalMedium = medium === "stills" ? "images" : medium;
+  const title = `${eventLabel} ${mediumLabel} Portfolio`;
+  const albums = portfolioAlbums[event] ?? [];
+
+  return createPageMetadata({
+    title,
+    description: `Explore ${eventLabel.toLowerCase()} ${mediumLabel.toLowerCase()} by Leading Lines Photography, crafted around real moments, family emotion, rituals, portraits, and atmosphere.`,
+    path: `/portfolio/${event}/${canonicalMedium}`,
+    image: albums[0]?.cover,
+    keywords: [
+      `${eventLabel} ${mediumLabel} Bangalore`,
+      `${eventLabel} photography portfolio`,
+      `Leading Lines ${eventLabel} ${mediumLabel}`,
+    ],
+  });
+}
 
 export default async function PortfolioCollectionPage({ params }: PortfolioCollectionPageProps) {
   const { event, medium } = await params;
@@ -50,11 +79,11 @@ export default async function PortfolioCollectionPage({ params }: PortfolioColle
             {albums.map((album, index) => (
               <Link
                 className="portfolio-album-card"
-                href={`/portfolio/${event}/stills/${album.slug}`}
+                href={`/portfolio/${event}/images/${album.slug}`}
                 key={album.slug}
                 aria-label={`Open ${album.title} gallery`}
               >
-                <img src={album.cover} alt={`${album.title} album cover`} />
+                <img src={album.cover} alt={`${album.title} album cover`} loading="lazy" decoding="async" />
                 <div>
                   <span>{String(index + 1).padStart(2, "0")}</span>
                   <h2>{album.title}</h2>

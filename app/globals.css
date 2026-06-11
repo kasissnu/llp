@@ -4438,41 +4438,59 @@ p {
 
   .service-card-body {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 22px;
     min-height: auto;
-    padding-inline: clamp(28px, 8vw, 86px);
+    padding-inline: 18px;
     padding-top: 28px;
     padding-bottom: 34px;
   }
 
   .service-card-body img {
-    height: clamp(260px, 34svh, 360px);
+    height: clamp(220px, 36svh, 320px);
   }
 
   .service-card-title {
-    padding-inline: clamp(28px, 8vw, 86px);
+    padding-inline: 18px;
+  }
+
+  .service-card-actions a {
+    min-height: 54px;
+    gap: 14px;
+    letter-spacing: 0.1em;
   }
 
   .about-section {
     min-height: auto;
-    grid-template-columns: minmax(22px, 1fr) minmax(240px, 330px) minmax(0, 520px) minmax(22px, 1fr);
-    gap: 24px;
-    padding-block: 74px;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 70px clamp(28px, 7vw, 70px);
+  }
+
+  .about-section::before {
+    display: none;
+  }
+
+  .about-image.primary,
+  .about-copy,
+  .about-image.secondary {
+    grid-column: 1;
+    width: min(620px, 100%);
+    justify-self: center;
   }
 
   .about-image.primary {
-    grid-column: 2;
-    height: clamp(380px, 48svh, 520px);
+    height: clamp(360px, 44svh, 500px);
     margin-top: 0;
   }
 
   .about-image.secondary {
-    display: none;
+    display: block;
+    height: clamp(240px, 30svh, 340px);
+    margin-bottom: 0;
   }
 
   .about-copy {
-    grid-column: 3;
-    padding: clamp(38px, 5vw, 58px);
+    padding: clamp(34px, 5vw, 52px);
   }
 
   .about-chenmay-profile,
@@ -4514,13 +4532,22 @@ p {
 
   .portfolio-carousel {
     height: auto;
-    min-height: 680px;
+    min-height: 620px;
     padding-inline: 26px;
   }
 
   .portfolio-carousel-stage {
-    grid-template-columns: minmax(120px, 0.55fr) minmax(280px, 1.1fr) minmax(120px, 0.55fr);
+    grid-template-columns: minmax(0, 1fr);
     gap: 16px;
+  }
+
+  .portfolio-carousel-card.previous,
+  .portfolio-carousel-card.next {
+    display: none;
+  }
+
+  .portfolio-carousel-card.active {
+    height: 430px;
   }
 
   .portfolio-carousel-card div {
@@ -4545,15 +4572,9 @@ p {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .footer-grid {
-    grid-template-columns: minmax(0, 1fr) minmax(130px, 0.48fr) minmax(240px, 1.05fr);
-    gap: 28px;
-  }
-}
-
-@media (min-width: 721px) and (max-width: 1024px) {
   main {
     padding-top: 126px;
+    overflow-x: clip;
   }
 
   section {
@@ -4571,6 +4592,53 @@ p {
 
   .gallery-controls {
     width: min(720px, calc(100% - 52px));
+  }
+
+  .footer {
+    padding-inline: 18px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .footer-brand,
+  .footer-links,
+  .footer-contact {
+    display: grid;
+    grid-column: auto;
+    grid-template-rows: none;
+  }
+
+  .footer-logo {
+    width: 190px;
+    height: 104px;
+  }
+
+  .footer h3 {
+    width: min(420px, 100%);
+    font-size: clamp(20px, 6vw, 28px);
+  }
+
+  .footer-links h4,
+  .footer-contact h4 {
+    padding-top: 0;
+  }
+
+  .footer-links nav,
+  .footer-contact-row:first-of-type {
+    margin-top: 0;
+  }
+
+  .footer-contact-row {
+    grid-template-columns: 22px minmax(0, 1fr);
+  }
+
+  .footer-contact-row p,
+  .footer nav a,
+  .footer-credits p {
+    overflow-wrap: anywhere;
   }
 }
 

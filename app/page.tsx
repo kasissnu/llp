@@ -4,6 +4,20 @@ import { ParallaxVideoBanner } from "./components/ParallaxVideoBanner";
 import { SiteFooter } from "./components/SiteFooter";
 import { SiteNav } from "./components/SiteNav";
 import { TestimonialCarousel } from "./components/TestimonialCarousel";
+import { createPageMetadata } from "./seo";
+
+export const metadata = createPageMetadata({
+  title: "Bangalore Wedding Photography & Films",
+  description:
+    "Documentary wedding photography and cinematic films in Bangalore for couples who want quiet direction, honest emotion, and family-first storytelling.",
+  path: "/",
+  keywords: [
+    "Bangalore wedding photography",
+    "Bangalore wedding films",
+    "candid wedding photographer Bangalore",
+    "wedding photography studio Bangalore",
+  ],
+});
 
 const galleryImages = [
   "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=85",
@@ -55,6 +69,8 @@ export default function Home() {
           <img
             src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=900&q=85"
             alt="Wedding couple portrait by Leading Lines Photography"
+            loading="lazy"
+            decoding="async"
           />
         </div>
         <div className="about-copy">
@@ -79,6 +95,8 @@ export default function Home() {
           <img
             src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=85"
             alt="Wedding ceremony detail"
+            loading="lazy"
+            decoding="async"
           />
         </div>
       </section>
@@ -126,6 +144,8 @@ export default function Home() {
         <img
           src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=900&q=85"
           alt="Wedding reception photography"
+          loading="lazy"
+          decoding="async"
         />
       </section>
 

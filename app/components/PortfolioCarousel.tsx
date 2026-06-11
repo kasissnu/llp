@@ -39,7 +39,11 @@ export function PortfolioCarousel({ stories }: PortfolioCarouselProps) {
       <div className="portfolio-carousel-stage">
         {visibleStories.map(({ story, position }) => (
           <article className={`portfolio-carousel-card ${position}`} key={`${story.title}-${position}`}>
-            <img src={story.image} alt={`${story.title} wedding by Leading Lines Photography`} />
+            <img
+              src={story.image}
+              alt={`${story.title} wedding by Leading Lines Photography`}
+              decoding="async"
+            />
             <div>
               <h2>{story.title}</h2>
               <p>{story.place}</p>

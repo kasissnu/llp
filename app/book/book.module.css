@@ -781,26 +781,7 @@
   line-height: 1.9;
 }
 
-@media (max-width: 1080px) {
-  .quoteEstimator {
-    grid-template-columns: minmax(0, 1fr) minmax(260px, 300px);
-  }
-
-  .quoteControls,
-  .quoteResult {
-    padding: 20px;
-  }
-
-  .quoteHeader {
-    padding: 22px;
-  }
-
-  .quoteResultIntro h3 {
-    font-size: clamp(28px, 3.6vw, 40px);
-  }
-}
-
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .bookingHero {
     min-height: 440px;
     padding: 58px 24px;
@@ -812,7 +793,7 @@
 
   .bookingForm {
     grid-template-columns: 1fr;
-    width: min(680px, 100%);
+    width: min(760px, 100%);
   }
 
   .quoteEstimator,
@@ -832,6 +813,7 @@
 
   .quoteHeader {
     display: grid;
+    padding: 22px;
   }
 
   .quoteResult {
@@ -847,7 +829,7 @@
   }
 
   .formSection {
-    padding: 46px 18px;
+    padding: 50px 22px;
   }
 
   .bookingForm > button {

@@ -1,6 +1,21 @@
 import { ParallaxBookingBanner } from "../components/ParallaxBookingBanner";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteNav } from "../components/SiteNav";
+import { createPageMetadata } from "../seo";
+
+export const metadata = createPageMetadata({
+  title: "About Chenmay Ssinha",
+  description:
+    "Meet Chenmay Ssinha and Leading Lines Photography, a Bengaluru wedding photography and films studio with 15 years of experience and 900+ weddings documented.",
+  path: "/about",
+  image: "/founder-chenmay-ssinha.webp",
+  keywords: [
+    "Chenmay Ssinha photographer",
+    "Leading Lines Photography founder",
+    "Bangalore wedding photographer",
+    "Bengaluru wedding photography studio",
+  ],
+});
 
 export default function AboutPage() {
   return (
@@ -19,19 +34,26 @@ export default function AboutPage() {
               <img
                 src="/team-leading-lines.webp"
                 alt="Leading Lines Photography team"
+                decoding="async"
               />
             </div>
             <img
               src="/split-films.jpg"
               alt="Wedding film portrait photographed by Leading Lines Photography"
+              loading="lazy"
+              decoding="async"
             />
             <img
               src="/split-stills.jpg"
               alt="Wedding portrait photographed by Leading Lines Photography"
+              loading="lazy"
+              decoding="async"
             />
             <img
               src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=900&q=85"
               alt="Wedding reception moment photographed by Leading Lines Photography"
+              loading="lazy"
+              decoding="async"
             />
           </div>
 
@@ -78,10 +100,14 @@ export default function AboutPage() {
           <img
             src="/founder-chenmay-ssinha.webp"
             alt="Portrait of Chenmay Ssinha, founder of Leading Lines Photography"
+            loading="lazy"
+            decoding="async"
           />
           <img
             src="/chenmay-raghu-rai-award.webp"
             alt="Chenmay Ssinha receiving recognition from Padma Shri Raghu Rai"
+            loading="lazy"
+            decoding="async"
           />
         </div>
       </section>

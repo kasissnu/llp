@@ -29,7 +29,7 @@ export function TestimonialCarousel({ testimonials }: TestimonialCarouselProps) 
     <section className="kind-words" aria-label="Kind words">
       <div className="testimonial-frame" key={active.name}>
         <div className="testimonial-image-card">
-          <img src={active.image} alt={`${active.name} wedding`} />
+          <img src={active.image} alt={`${active.name} wedding`} loading="lazy" decoding="async" />
         </div>
         <div className="testimonial-copy">
           <span className="quote-mark" aria-hidden="true">

@@ -4,6 +4,20 @@ import { SiteNav } from "../components/SiteNav";
 import { TestimonialCarousel } from "../components/TestimonialCarousel";
 import { BookingForm } from "./BookingForm";
 import styles from "./book.module.css";
+import { createPageMetadata } from "../seo";
+
+export const metadata = createPageMetadata({
+  title: "Book Wedding Photography",
+  description:
+    "Build an indicative wedding photography and films quote for Bangalore events, then send your enquiry to Leading Lines Photography on WhatsApp.",
+  path: "/book",
+  keywords: [
+    "book wedding photographer Bangalore",
+    "wedding photography quote Bangalore",
+    "wedding films quote Bangalore",
+    "Leading Lines Photography booking",
+  ],
+});
 
 const testimonials = [
   {

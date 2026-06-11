@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { defaultOgImage, siteDescription, siteName, siteUrl } from "./seo";
 
-const siteUrl = new URL("https://leadinglinesphotography.com");
-const siteTitle = "Leading Lines Photography | Bangalore Wedding Photography & Films";
-const siteDescription =
-  "Leading Lines Photography is a Bengaluru wedding photography and films studio creating refined wedding, pre-wedding, family event, and portrait stories across India.";
-const heroImage = "/services-hero-banner.png";
+const siteTitle = `${siteName} | Bangalore Wedding Photography & Films`;
 
 export const metadata: Metadata = {
   metadataBase: siteUrl,
@@ -31,6 +28,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  manifest: "/manifest.webmanifest",
   openGraph: {
     title: siteTitle,
     description: siteDescription,
@@ -38,7 +36,7 @@ export const metadata: Metadata = {
     siteName: "Leading Lines Photography",
     images: [
       {
-        url: heroImage,
+        url: defaultOgImage,
         width: 1200,
         height: 630,
         alt: "Leading Lines Photography wedding photography and films",
@@ -51,7 +49,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteTitle,
     description: siteDescription,
-    images: [heroImage],
+    images: [defaultOgImage],
   },
   robots: {
     index: true,
@@ -80,7 +78,7 @@ const structuredData = {
   "@id": `${siteUrl.toString()}#business`,
   name: "Leading Lines Photography",
   url: siteUrl.toString(),
-  image: new URL(heroImage, siteUrl).toString(),
+  image: new URL(defaultOgImage, siteUrl).toString(),
   logo: new URL("/logo-leading-lines.png", siteUrl).toString(),
   description: siteDescription,
   telephone: "+91-7604025885",

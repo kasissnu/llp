@@ -1,6 +1,20 @@
 import { ParallaxBookingBanner } from "../components/ParallaxBookingBanner";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteNav } from "../components/SiteNav";
+import { createPageMetadata } from "../seo";
+
+export const metadata = createPageMetadata({
+  title: "Wedding Photography Services",
+  description:
+    "Explore Leading Lines Photography services for weddings, pre-weddings, family events, portraits, photography, and films across Bangalore.",
+  path: "/details",
+  keywords: [
+    "wedding photography services Bangalore",
+    "pre wedding photography Bangalore",
+    "family event photography Bangalore",
+    "wedding videography Bangalore",
+  ],
+});
 
 const services = [
   {
@@ -90,7 +104,12 @@ export default function DetailsPage() {
                   <a href="/book">Inquire for availability</a>
                 </div>
               </div>
-              <img src={service.image} alt={`${service.title} service by Leading Lines Photography`} />
+              <img
+                src={service.image}
+                alt={`${service.title} service by Leading Lines Photography`}
+                loading="lazy"
+                decoding="async"
+              />
             </div>
           </article>
         ))}
