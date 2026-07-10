@@ -12,7 +12,7 @@ type ParallaxBookingBannerProps = {
   image?: string;
 };
 
-const defaultImage = wsMedia.landscape01;
+const defaultImage = "/ws/booking-banner.jpg";
 
 export function ParallaxBookingBanner({
   eyebrow = "Now booking Bangalore celebrations",

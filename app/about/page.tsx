@@ -2,7 +2,6 @@ import { ParallaxBookingBanner } from "../components/ParallaxBookingBanner";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteNav } from "../components/SiteNav";
 import { createPageMetadata } from "../seo";
-import { wsMedia } from "../ws-media";
 
 export const metadata = createPageMetadata({
   title: "About Chenmay Ssinha",
@@ -39,19 +38,19 @@ export default function AboutPage() {
               />
             </div>
             <img
-              src={wsMedia.landscape04}
+              src="/ws/about-portrait-01.jpg"
               alt="Wedding film portrait photographed by Leading Lines Photography"
               loading="lazy"
               decoding="async"
             />
             <img
-              src={wsMedia.portrait01}
+              src="/ws/about-portrait-02.jpg"
               alt="Wedding portrait photographed by Leading Lines Photography"
               loading="lazy"
               decoding="async"
             />
             <img
-              src={wsMedia.portrait03}
+              src="/ws/about-portrait-03.jpg"
               alt="Wedding reception moment photographed by Leading Lines Photography"
               loading="lazy"
               decoding="async"
@@ -105,7 +104,7 @@ export default function AboutPage() {
             decoding="async"
           />
           <img
-            src="/chenmay-raghu-rai-award.webp"
+            src="chenmay-raghu-rai-award.webp"
             alt="Chenmay Ssinha receiving recognition from Padma Shri Raghu Rai"
             loading="lazy"
             decoding="async"
