@@ -97,7 +97,7 @@ export default function BookPage() {
         body="Choose the rituals, team, deliverables, and upgrades. We will turn it into a calm, custom estimate."
         href="#quote-builder"
         label="Start building your wedding quote"
-        image={wsMedia.landscape01}
+        image={wsMedia.bookingBanner}
       />
 
       <section className={styles.formSection} id="quote-builder">

@@ -1,4 +1,5 @@
 export const wsMedia = {
+  bookingBanner: "/ws/booking-banner.jpg",
   landscape01: "/ws/landscape-01.jpg",
   landscape02: "/ws/landscape-02.jpg",
   landscape03: "/ws/landscape-03.jpg",

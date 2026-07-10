@@ -14,12 +14,14 @@ type PortfolioCarouselProps = {
 
 export function PortfolioCarousel({ stories }: PortfolioCarouselProps) {
   const [activeIndex, setActiveIndex] = useState(0);
-  const visibleStories = [-1, 0, 1].map((offset) => {
-    const index = (activeIndex + offset + stories.length) % stories.length;
 
+  // Render 5 slots: -2, -1, 0, 1, 2. CSS hides distance-2 on mobile via media query.
+  const visibleStories = [-2, -1, 0, 1, 2].map((offset) => {
+    const index = (activeIndex + offset + stories.length) % stories.length;
     return {
       story: stories[index],
-      position: offset === 0 ? "active" : offset < 0 ? "previous" : "next",
+      offset,
+      distance: Math.abs(offset),
     };
   });
 
@@ -37,8 +39,12 @@ export function PortfolioCarousel({ stories }: PortfolioCarouselProps) {
         <h1>Portfolio</h1>
       </div>
       <div className="portfolio-carousel-stage">
-        {visibleStories.map(({ story, position }) => (
-          <article className={`portfolio-carousel-card ${position}`} key={`${story.title}-${position}`}>
+        {visibleStories.map(({ story, offset, distance }) => (
+          <article
+            className={`portfolio-carousel-card distance-${distance}`}
+            style={{ "--offset": offset } as React.CSSProperties}
+            key={`${story.title}-${offset}`}
+          >
             <img
               src={story.image}
               alt={`${story.title} wedding by Leading Lines Photography`}
@@ -55,7 +61,9 @@ export function PortfolioCarousel({ stories }: PortfolioCarouselProps) {
         <button type="button" onClick={showPrevious} aria-label="Show previous couple">
           ←
         </button>
-        <span>{String(activeIndex + 1).padStart(2, "0")} / {String(stories.length).padStart(2, "0")}</span>
+        <span>
+          {String(activeIndex + 1).padStart(2, "0")} / {String(stories.length).padStart(2, "0")}
+        </span>
         <button type="button" onClick={showNext} aria-label="Show next couple">
           →
         </button>

@@ -2136,25 +2136,35 @@ p {
 }
 
 .portfolio-carousel-stage {
+  position: relative;
+  height: 100%;
   min-height: 0;
-  display: grid;
-  grid-template-columns: minmax(160px, 0.72fr) minmax(300px, 1.2fr) minmax(160px, 0.72fr);
-  align-items: center;
-  gap: clamp(12px, 2.2vw, 28px);
+}
+
+@media (min-width: 901px) {
+  .portfolio-carousel-stage {
+    --carousel-step: clamp(220px, 16vw, 320px);
+  }
 }
 
 .portfolio-carousel-card {
-  position: relative;
-  height: 82%;
-  min-height: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  aspect-ratio: 3 / 4;
   display: grid;
   align-content: end;
   overflow: hidden;
   background: var(--brand);
   box-shadow: 0 24px 70px rgba(31, 31, 29, 0.12);
-  transform: scale(0.92);
+  width: auto;
+  height: clamp(346px, 32vw, 560px);
+  opacity: 1;
+  transform:
+    translate(-50%, -50%)
+    translateX(calc(var(--offset) * var(--carousel-step, 320px)))
+    scale(var(--card-scale, 1));
   transition:
-    min-height 520ms cubic-bezier(0.65, 0, 0.35, 1),
     opacity 520ms cubic-bezier(0.65, 0, 0.35, 1),
     transform 520ms cubic-bezier(0.65, 0, 0.35, 1),
     box-shadow 520ms cubic-bezier(0.65, 0, 0.35, 1);
@@ -2169,16 +2179,26 @@ p {
   pointer-events: none;
 }
 
-.portfolio-carousel-card.active {
-  height: 100%;
-  min-height: 0;
-  transform: scale(1);
+.portfolio-carousel-card.distance-0 {
+  height: clamp(400px, 36vw, 620px);
+  opacity: 1;
+  --card-scale: 1.08;
+  z-index: 3;
   box-shadow: 0 30px 88px rgba(31, 31, 29, 0.16);
 }
 
-.portfolio-carousel-card.previous,
-.portfolio-carousel-card.next {
+.portfolio-carousel-card.distance-1 {
+  height: clamp(292px, 24vw, 440px);
   opacity: 0.78;
+  --card-scale: 0.86;
+  z-index: 2;
+}
+
+.portfolio-carousel-card.distance-2 {
+  height: clamp(240px, 18vw, 320px);
+  opacity: 0.5;
+  --card-scale: 0.72;
+  z-index: 1;
 }
 
 .portfolio-carousel-card img {
@@ -2313,11 +2333,26 @@ p {
 
 .collection-card {
   position: relative;
-  min-height: 390px;
   display: grid;
   align-content: end;
   overflow: hidden;
   background: var(--brand);
+}
+
+@media (min-width: 901px) {
+  .collection-group {
+    width: min(100%, 1000px);
+    margin-inline: auto;
+  }
+
+  .collection-grid {
+    gap: clamp(10px, 0.85vw, 16px);
+  }
+
+  .collection-card {
+    aspect-ratio: 1 / 1;
+    min-height: 0;
+  }
 }
 
 .collection-card img {
@@ -2848,9 +2883,6 @@ p {
     padding-inline: 34px;
   }
 
-  .portfolio-carousel-stage {
-    grid-template-columns: 0.68fr 1.22fr 0.68fr;
-  }
 
   .image-gallery-grid,
   .film-gallery-grid {
@@ -3381,17 +3413,21 @@ p {
   }
 
   .portfolio-carousel-stage {
-    grid-template-columns: 1fr;
+    --carousel-step: clamp(96px, 18vw, 150px);
   }
 
-  .portfolio-carousel-card.previous,
-  .portfolio-carousel-card.next {
+  .portfolio-carousel-card.distance-2 {
     display: none;
   }
 
-  .portfolio-carousel-card.active {
-    height: 100%;
-    min-height: 0;
+  .portfolio-carousel-card.distance-1 {
+    height: clamp(200px, 46vw, 300px);
+    --card-scale: 0.9;
+  }
+
+  .portfolio-carousel-card.distance-0 {
+    height: clamp(306px, 76vw, 452px);
+    --card-scale: 1.04;
   }
 
   .collection-grid,
@@ -3944,16 +3980,6 @@ p {
     padding: 24px 14px;
   }
 
-  .portfolio-carousel-card.active {
-    height: 100%;
-    min-height: 0;
-  }
-
-  .portfolio-carousel-card,
-  .portfolio-carousel-card.active {
-    height: 100%;
-    min-height: 0;
-  }
 
   .collection-section {
     padding: 48px 18px;
@@ -4589,24 +4615,11 @@ p {
   }
 
   .portfolio-carousel {
-    height: auto;
+    height: calc(100svh - 118px);
     min-height: 620px;
     padding-inline: 26px;
   }
 
-  .portfolio-carousel-stage {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 16px;
-  }
-
-  .portfolio-carousel-card.previous,
-  .portfolio-carousel-card.next {
-    display: none;
-  }
-
-  .portfolio-carousel-card.active {
-    height: 430px;
-  }
 
   .portfolio-carousel-card div {
     padding: 18px;
@@ -4707,7 +4720,6 @@ p {
   }
 
   .kind-words,
-  .portfolio-carousel,
   .hero-image {
     height: auto;
   }

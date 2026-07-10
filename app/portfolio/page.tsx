@@ -22,32 +22,32 @@ const stories = [
   {
     title: "Aditi & Chris",
     place: "Indiranagar / temple ceremony",
-    image: wsMedia.landscape01,
+    image: "/ws/hero-portrait-01.jpg",
   },
   {
     title: "Ananya & Varun",
     place: "Palace Grounds / reception",
-    image: wsMedia.landscape02,
+    image: "/ws/hero-portrait-02.jpg",
   },
   {
     title: "Leah & Arjun",
     place: "Whitefield / intimate wedding",
-    image: wsMedia.landscape03,
+    image: "/ws/hero-portrait-03.jpg",
   },
   {
     title: "Meera & Siddharth",
     place: "Jayanagar / family celebration",
-    image: wsMedia.portrait02,
+    image: "/ws/hero-portrait-04.jpg",
   },
   {
     title: "Nisha & Rohan",
     place: "MG Road / cocktail evening",
-    image: wsMedia.portrait03,
+    image: "/ws/hero-portrait-05.jpg",
   },
   {
     title: "Tara & Kabir",
     place: "Bangalore farmhouse / haldi",
-    image: wsMedia.portrait04,
+    image: "/ws/hero-portrait-06.jpg",
   },
 ];
 
@@ -58,12 +58,12 @@ const collections = [
       {
         title: "Stills",
         href: "/portfolio/weddings/images",
-        image: wsMedia.landscape01,
+        image: "/ws/hero-landscape-01.jpg",
       },
       {
         title: "Films",
         href: "/portfolio/weddings/films",
-        image: wsMedia.landscape04,
+        image: "/ws/hero-landscape-02.jpg",
       },
     ],
   },
