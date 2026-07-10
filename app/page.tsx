@@ -21,12 +21,13 @@ export const metadata = createPageMetadata({
 });
 
 const galleryImages = [
-  "/ws/hero-landscape-01.jpg",
-  "/ws/hero-landscape-02.jpg",
-  "/ws/hero-landscape-03.jpg",
   "/ws/hero-portrait-01.jpg",
   "/ws/hero-portrait-02.jpg",
   "/ws/hero-portrait-03.jpg",
+  "/ws/hero-portrait-04.jpg",
+  "/ws/hero-portrait-05.jpg",
+  "/ws/hero-portrait-06.jpg",
+  "/ws/hero-portrait-07.jpg",
 ];
 
 const testimonials = [
@@ -35,21 +36,21 @@ const testimonials = [
     quote:
       "Leading Lines made the day feel easy. They noticed the rituals, the pauses, the family chaos, and the tiny things we missed while living through it.",
     name: "Aditi & Chris, Indiranagar",
-    image: wsMedia.portrait01,
+    image: "/ws/testimonial-shared.jpg",
   },
   {
     title: "Calm people with a very sharp eye",
     quote:
       "Nothing felt staged or heavy. They moved through the wedding quietly and somehow came back with everything that mattered.",
     name: "Ananya & Varun, Palace Grounds",
-    image: wsMedia.portrait04,
+    image: "/ws/testimonial-shared.jpg",
   },
   {
     title: "Our film still feels alive every time we watch it",
     quote:
       "The video has the exact rhythm of our weekend. It is emotional without being overdone, and it feels completely like us.",
     name: "Leah & Arjun, Whitefield",
-    image: wsMedia.portrait06,
+    image: "/ws/testimonial-shared.jpg",
   },
 ];
 
@@ -63,14 +64,15 @@ export default function Home() {
       </section>
 
       <section className="about-section" id="about">
-        <div className="about-image primary">
+        <picture className="about-image primary">
+          <source media="(max-width: 640px)" srcSet="/ws/about-mobile-01.jpg" />
           <img
-            src={wsMedia.landscape03}
+            src="/ws/about-desktop-01.jpg"
             alt="Wedding couple portrait by Leading Lines Photography"
             loading="lazy"
             decoding="async"
           />
-        </div>
+        </picture>
         <div className="about-copy">
           <p className="section-label">Bangalore wedding documentarians</p>
           <p className="script">Every frame led by feeling</p>
@@ -89,14 +91,15 @@ export default function Home() {
             About us +
           </a>
         </div>
-        <div className="about-image secondary">
+        <picture className="about-image secondary">
+          <source media="(max-width: 640px)" srcSet="/ws/about-mobile-02.jpg" />
           <img
-            src={wsMedia.portrait02}
+            src="/ws/about-desktop-02.jpg"
             alt="Wedding ceremony detail"
             loading="lazy"
             decoding="async"
           />
-        </div>
+        </picture>
       </section>
 
       <section className="split-showcase" id="details" aria-label="Explore photography and films">
@@ -140,7 +143,7 @@ export default function Home() {
           </a>
         </div>
         <img
-          src={wsMedia.landscape04}
+          src="/ws/selected-work-02.jpg"
           alt="Wedding reception photography"
           loading="lazy"
           decoding="async"

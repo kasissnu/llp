@@ -16,6 +16,8 @@ type TestimonialCarouselProps = {
 export function TestimonialCarousel({ testimonials }: TestimonialCarouselProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const active = testimonials[activeIndex];
+  const featureImage = testimonials[0]?.image ?? "";
+  const featureImageAlt = testimonials[0] ? `${testimonials[0].name} wedding` : "Wedding testimonial";
 
   const showPrevious = () => {
     setActiveIndex((current) => (current - 1 + testimonials.length) % testimonials.length);
@@ -27,11 +29,11 @@ export function TestimonialCarousel({ testimonials }: TestimonialCarouselProps) 
 
   return (
     <section className="kind-words" aria-label="Kind words">
-      <div className="testimonial-frame" key={active.name}>
+      <div className="testimonial-frame">
         <div className="testimonial-image-card">
-          <img src={active.image} alt={`${active.name} wedding`} loading="lazy" decoding="async" />
+          <img src={featureImage} alt={featureImageAlt} loading="lazy" decoding="async" />
         </div>
-        <div className="testimonial-copy">
+        <div className="testimonial-copy" key={active.name}>
           <span className="quote-mark" aria-hidden="true">
             "
           </span>
