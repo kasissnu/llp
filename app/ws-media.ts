@@ -1,0 +1,14 @@
+export const wsMedia = {
+  landscape01: "/ws/landscape-01.jpg",
+  landscape02: "/ws/landscape-02.jpg",
+  landscape03: "/ws/landscape-03.jpg",
+  landscape04: "/ws/landscape-04.jpg",
+  landscape05: "/ws/landscape-05.jpg",
+  landscape06: "/ws/landscape-06.jpg",
+  portrait01: "/ws/portrait-01.jpg",
+  portrait02: "/ws/portrait-02.jpg",
+  portrait03: "/ws/portrait-03.jpg",
+  portrait04: "/ws/portrait-04.jpg",
+  portrait05: "/ws/portrait-05.jpg",
+  portrait06: "/ws/portrait-06.jpg",
+} as const;

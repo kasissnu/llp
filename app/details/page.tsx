@@ -2,6 +2,7 @@ import { ParallaxBookingBanner } from "../components/ParallaxBookingBanner";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteNav } from "../components/SiteNav";
 import { createPageMetadata } from "../seo";
+import { wsMedia } from "../ws-media";
 
 export const metadata = createPageMetadata({
   title: "Wedding Photography Services",
@@ -22,7 +23,7 @@ const services = [
     detail:
       "Full-day documentary coverage for rituals, portraits, family moments, and reception energy. Collections are shaped around your schedule, venues, and the rhythm of your people.",
     meta: "Custom wedding coverage",
-    image: "/services-hero-banner.png",
+    image: wsMedia.landscape02,
     href: "/portfolio/weddings/images",
   },
   {
@@ -30,7 +31,7 @@ const services = [
     detail:
       "Editorial portraits and easy guided sessions across Bangalore, planned around comfort, light, location, and the mood you want the images to carry.",
     meta: "Outdoor / home / venue-led",
-    image: "/split-films.jpg",
+    image: wsMedia.portrait02,
     href: "/portfolio/prewedding/images",
   },
   {
@@ -38,7 +39,7 @@ const services = [
     detail:
       "Quiet, observant coverage for intimate ceremonies, milestone gatherings, anniversaries, and the people who make those rooms feel full.",
     meta: "Naming / anniversaries / private events",
-    image: "/split-stills.jpg",
+    image: wsMedia.landscape05,
     href: "/portfolio",
   },
   {
@@ -46,7 +47,7 @@ const services = [
     detail:
       "Portrait-led sessions for couples, families, maternity, personal milestones, and thoughtful editorial imagery without the pressure of a full event.",
     meta: "Portraits / couples / maternity",
-    image: "/founder-chenmay-ssinha.webp",
+    image: wsMedia.portrait04,
     href: "/book",
   },
 ];

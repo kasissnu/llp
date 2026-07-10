@@ -3,6 +3,7 @@ import { PortfolioCarousel } from "../components/PortfolioCarousel";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteNav } from "../components/SiteNav";
 import { createPageMetadata } from "../seo";
+import { wsMedia } from "../ws-media";
 
 export const metadata = createPageMetadata({
   title: "Wedding Portfolio",
@@ -21,38 +22,32 @@ const stories = [
   {
     title: "Aditi & Chris",
     place: "Indiranagar / temple ceremony",
-    image:
-      "https://images.unsplash.com/photo-1529634597503-139d3726fed5?auto=format&fit=crop&w=1000&q=85",
+    image: wsMedia.landscape01,
   },
   {
     title: "Ananya & Varun",
     place: "Palace Grounds / reception",
-    image:
-      "https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?auto=format&fit=crop&w=1000&q=85",
+    image: wsMedia.landscape02,
   },
   {
     title: "Leah & Arjun",
     place: "Whitefield / intimate wedding",
-    image:
-      "https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1000&q=85",
+    image: wsMedia.landscape03,
   },
   {
     title: "Meera & Siddharth",
     place: "Jayanagar / family celebration",
-    image:
-      "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1000&q=85",
+    image: wsMedia.portrait02,
   },
   {
     title: "Nisha & Rohan",
     place: "MG Road / cocktail evening",
-    image:
-      "https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=1000&q=85",
+    image: wsMedia.portrait03,
   },
   {
     title: "Tara & Kabir",
     place: "Bangalore farmhouse / haldi",
-    image:
-      "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1000&q=85",
+    image: wsMedia.portrait04,
   },
 ];
 
@@ -63,14 +58,12 @@ const collections = [
       {
         title: "Stills",
         href: "/portfolio/weddings/images",
-        image:
-          "https://images.unsplash.com/photo-1529634597503-139d3726fed5?auto=format&fit=crop&w=1000&q=85",
+        image: wsMedia.landscape01,
       },
       {
         title: "Films",
         href: "/portfolio/weddings/films",
-        image:
-          "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=1000&q=85",
+        image: wsMedia.landscape04,
       },
     ],
   },
@@ -80,14 +73,12 @@ const collections = [
       {
         title: "Stills",
         href: "/portfolio/prewedding/images",
-        image:
-          "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1000&q=85",
+        image: wsMedia.portrait05,
       },
       {
         title: "Films",
         href: "/portfolio/prewedding/films",
-        image:
-          "https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1000&q=85",
+        image: wsMedia.portrait06,
       },
     ],
   },

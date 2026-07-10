@@ -5,6 +5,7 @@ import { SiteFooter } from "./components/SiteFooter";
 import { SiteNav } from "./components/SiteNav";
 import { TestimonialCarousel } from "./components/TestimonialCarousel";
 import { createPageMetadata } from "./seo";
+import { wsMedia } from "./ws-media";
 
 export const metadata = createPageMetadata({
   title: "Bangalore Wedding Photography & Films",
@@ -20,12 +21,12 @@ export const metadata = createPageMetadata({
 });
 
 const galleryImages = [
-  "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=85",
-  "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&w=900&q=85",
-  "https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=900&q=85",
-  "https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=900&q=85",
-  "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=85",
-  "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=900&q=85",
+  "/ws/hero-landscape-01.jpg",
+  "/ws/hero-landscape-02.jpg",
+  "/ws/hero-landscape-03.jpg",
+  "/ws/hero-portrait-01.jpg",
+  "/ws/hero-portrait-02.jpg",
+  "/ws/hero-portrait-03.jpg",
 ];
 
 const testimonials = [
@@ -34,24 +35,21 @@ const testimonials = [
     quote:
       "Leading Lines made the day feel easy. They noticed the rituals, the pauses, the family chaos, and the tiny things we missed while living through it.",
     name: "Aditi & Chris, Indiranagar",
-    image:
-      "https://images.unsplash.com/photo-1529634597503-139d3726fed5?auto=format&fit=crop&w=1200&q=85",
+    image: wsMedia.portrait01,
   },
   {
     title: "Calm people with a very sharp eye",
     quote:
       "Nothing felt staged or heavy. They moved through the wedding quietly and somehow came back with everything that mattered.",
     name: "Ananya & Varun, Palace Grounds",
-    image:
-      "https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?auto=format&fit=crop&w=1200&q=85",
+    image: wsMedia.portrait04,
   },
   {
     title: "Our film still feels alive every time we watch it",
     quote:
       "The video has the exact rhythm of our weekend. It is emotional without being overdone, and it feels completely like us.",
     name: "Leah & Arjun, Whitefield",
-    image:
-      "https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1200&q=85",
+    image: wsMedia.portrait06,
   },
 ];
 
@@ -67,7 +65,7 @@ export default function Home() {
       <section className="about-section" id="about">
         <div className="about-image primary">
           <img
-            src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=900&q=85"
+            src={wsMedia.landscape03}
             alt="Wedding couple portrait by Leading Lines Photography"
             loading="lazy"
             decoding="async"
@@ -93,7 +91,7 @@ export default function Home() {
         </div>
         <div className="about-image secondary">
           <img
-            src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=85"
+            src={wsMedia.portrait02}
             alt="Wedding ceremony detail"
             loading="lazy"
             decoding="async"
@@ -116,7 +114,7 @@ export default function Home() {
 
       <ParallaxVideoBanner
         videoSrc="/wedding_film_for_homepage.mp4"
-        poster="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=1800&q=85"
+        poster={wsMedia.landscape01}
       />
 
       <section className="reviews-section" id="portfolio">
@@ -142,7 +140,7 @@ export default function Home() {
           </a>
         </div>
         <img
-          src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=900&q=85"
+          src={wsMedia.landscape04}
           alt="Wedding reception photography"
           loading="lazy"
           decoding="async"

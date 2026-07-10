@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { wsMedia } from "../ws-media";
 
 type ParallaxBookingBannerProps = {
   eyebrow?: string;
@@ -11,8 +12,7 @@ type ParallaxBookingBannerProps = {
   image?: string;
 };
 
-const defaultImage =
-  "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=1800&q=85";
+const defaultImage = wsMedia.landscape01;
 
 export function ParallaxBookingBanner({
   eyebrow = "Now booking Bangalore celebrations",

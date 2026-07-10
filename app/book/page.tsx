@@ -5,6 +5,7 @@ import { TestimonialCarousel } from "../components/TestimonialCarousel";
 import { BookingForm } from "./BookingForm";
 import styles from "./book.module.css";
 import { createPageMetadata } from "../seo";
+import { wsMedia } from "../ws-media";
 
 export const metadata = createPageMetadata({
   title: "Book Wedding Photography",
@@ -25,24 +26,21 @@ const testimonials = [
     quote:
       "Leading Lines made the day feel easy. They noticed the rituals, the pauses, the family chaos, and the tiny things we missed while living through it.",
     name: "Aditi & Chris, Indiranagar",
-    image:
-      "https://images.unsplash.com/photo-1529634597503-139d3726fed5?auto=format&fit=crop&w=1200&q=85",
+    image: wsMedia.portrait01,
   },
   {
     title: "Calm people with a very sharp eye",
     quote:
       "Nothing felt staged or heavy. They moved through the wedding quietly and somehow came back with everything that mattered.",
     name: "Ananya & Varun, Palace Grounds",
-    image:
-      "https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?auto=format&fit=crop&w=1200&q=85",
+    image: wsMedia.portrait04,
   },
   {
     title: "Our film still feels alive every time we watch it",
     quote:
       "The video has the exact rhythm of our weekend. It is emotional without being overdone, and it feels completely like us.",
     name: "Leah & Arjun, Whitefield",
-    image:
-      "https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1200&q=85",
+    image: wsMedia.portrait06,
   },
 ];
 
@@ -99,7 +97,7 @@ export default function BookPage() {
         body="Choose the rituals, team, deliverables, and upgrades. We will turn it into a calm, custom estimate."
         href="#quote-builder"
         label="Start building your wedding quote"
-        image="/services-hero-banner.png"
+        image={wsMedia.landscape01}
       />
 
       <section className={styles.formSection} id="quote-builder">

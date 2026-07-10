@@ -2,6 +2,7 @@ import { ParallaxBookingBanner } from "../components/ParallaxBookingBanner";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteNav } from "../components/SiteNav";
 import { createPageMetadata } from "../seo";
+import { wsMedia } from "../ws-media";
 
 export const metadata = createPageMetadata({
   title: "About Chenmay Ssinha",
@@ -38,19 +39,19 @@ export default function AboutPage() {
               />
             </div>
             <img
-              src="/split-films.jpg"
+              src={wsMedia.landscape04}
               alt="Wedding film portrait photographed by Leading Lines Photography"
               loading="lazy"
               decoding="async"
             />
             <img
-              src="/split-stills.jpg"
+              src={wsMedia.portrait01}
               alt="Wedding portrait photographed by Leading Lines Photography"
               loading="lazy"
               decoding="async"
             />
             <img
-              src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=900&q=85"
+              src={wsMedia.portrait03}
               alt="Wedding reception moment photographed by Leading Lines Photography"
               loading="lazy"
               decoding="async"

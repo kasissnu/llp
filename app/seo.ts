@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import { wsMedia } from "./ws-media";
 
 export const siteUrl = new URL("https://leadinglinesphotography.com");
 export const siteName = "Leading Lines Photography";
-export const defaultOgImage = "/services-hero-banner.png";
+export const defaultOgImage = wsMedia.landscape01;
 export const siteDescription =
   "Leading Lines Photography is a Bengaluru wedding photography and films studio creating refined wedding, pre-wedding, family event, and portrait stories across India.";
 
