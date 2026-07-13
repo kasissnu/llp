@@ -1,4 +1,3 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import { ParallaxBookingBanner } from "../../../components/ParallaxBookingBanner";
 import { SiteFooter } from "../../../components/SiteFooter";
@@ -77,19 +76,14 @@ export default async function PortfolioCollectionPage({ params }: PortfolioColle
         ) : (
           <section className="portfolio-album-grid" aria-label={`${pageTitle} albums`}>
             {albums.map((album, index) => (
-              <Link
-                className="portfolio-album-card"
-                href={`/portfolio/${event}/images/${album.slug}`}
-                key={album.slug}
-                aria-label={`Open ${album.title} gallery`}
-              >
+              <div className="portfolio-album-card is-disabled-link" key={album.slug} aria-disabled="true">
                 <img src={album.cover} alt={`${album.title} album cover`} loading="lazy" decoding="async" />
                 <div>
                   <span>{String(index + 1).padStart(2, "0")}</span>
                   <h2>{album.title}</h2>
                   <p>{album.place}</p>
                 </div>
-              </Link>
+              </div>
             ))}
           </section>
         )}

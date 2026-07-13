@@ -101,7 +101,13 @@ export default function DetailsPage() {
                 <p>{service.detail}</p>
                 <small>{service.meta}</small>
                 <div className="service-card-actions">
-                  <a href={service.href}>View portfolio</a>
+                  {service.href.startsWith("/portfolio") ? (
+                    <span className="service-card-disabled is-disabled-link" aria-disabled="true">
+                      Collection coming soon
+                    </span>
+                  ) : (
+                    <a href={service.href}>Book photoshoot</a>
+                  )}
                   <a href="/book">Inquire for availability</a>
                 </div>
               </div>

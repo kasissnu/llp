@@ -47,7 +47,9 @@ export function SiteFooter({ headline, tone = "home" }: SiteFooterProps) {
             <a href="/">Home</a>
             <a href="/about">About</a>
             <a href="/details">Details</a>
-            <a href="/portfolio">Portfolio</a>
+            <a className="is-disabled-link footer-link-disabled" href={undefined} aria-disabled="true" tabIndex={-1}>
+              Portfolio
+            </a>
             <a href="#contact">Contact Us</a>
             <a href="/book">Book</a>
           </nav>

@@ -103,14 +103,14 @@ export default function Home() {
       </section>
 
       <section className="split-showcase" id="details" aria-label="Explore photography and films">
-        <a className="split-panel split-images" href="/portfolio/weddings/images">
+        <div className="split-panel split-images is-disabled-link" aria-disabled="true">
           <span>Stills</span>
           <small>Rituals, portraits, families</small>
-        </a>
-        <a className="split-panel split-films" href="/portfolio/weddings/films">
+        </div>
+        <div className="split-panel split-films is-disabled-link" aria-disabled="true">
           <span>Films</span>
           <small>Sound, motion, atmosphere</small>
-        </a>
+        </div>
       </section>
 
       <TestimonialCarousel testimonials={testimonials} />
@@ -138,7 +138,7 @@ export default function Home() {
             <span>Documentary candids</span>
             <span>Reception energy</span>
           </div>
-          <a className="text-link" href="/portfolio">
+          <a className="text-link is-disabled-link" href={undefined} aria-disabled="true" tabIndex={-1}>
             View the image direction +
           </a>
         </div>

@@ -99,10 +99,10 @@ export default function PortfolioPage() {
             </h3>
             <div className="collection-grid">
               {collection.links.map((item) => (
-                <a className="collection-card" href={item.href} key={item.title}>
+                <div className="collection-card is-disabled-link" aria-disabled="true" key={item.title}>
                   <img src={item.image} alt={`${item.title} portfolio`} loading="lazy" decoding="async" />
                   <span>{item.title}</span>
-                </a>
+                </div>
               ))}
             </div>
           </div>

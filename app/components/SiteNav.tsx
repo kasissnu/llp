@@ -5,7 +5,7 @@ const navLeft = [
 ];
 
 const navRight = [
-  { label: "Portfolio", href: "/portfolio" },
+  { label: "Portfolio", href: "/portfolio", disabled: true },
   { label: "Contact", href: "#contact" },
   { label: "Book Us", href: "/book" },
 ];
@@ -36,9 +36,21 @@ export function SiteNav() {
         </a>
         <div className="nav-links nav-links-right" aria-label="Secondary page links">
           {navRight.map((item) => (
-            <a href={item.href} key={item.label}>
-              {item.label}
-            </a>
+            item.disabled ? (
+              <a
+                className="is-disabled-link nav-link-disabled"
+                href={undefined}
+                aria-disabled="true"
+                tabIndex={-1}
+                key={item.label}
+              >
+                {item.label}
+              </a>
+            ) : (
+              <a href={item.href} key={item.label}>
+                {item.label}
+              </a>
+            )
           ))}
         </div>
         <div className="nav-socials" aria-label="Social links">

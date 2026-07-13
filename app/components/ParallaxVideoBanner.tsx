@@ -63,7 +63,9 @@ export function ParallaxVideoBanner({ videoSrc, poster }: ParallaxVideoBannerPro
         <div className="video-banner-copy">
           <p className="section-label">Wedding films</p>
         </div>
-        <a href="/portfolio">See the films</a>
+        <a className="is-disabled-link video-banner-link-disabled" href={undefined} aria-disabled="true" tabIndex={-1}>
+          See the films
+        </a>
       </div>
     </section>
   );
