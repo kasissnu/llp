@@ -50,16 +50,19 @@
 }
 
 .formSection {
-  padding: clamp(54px, 8vw, 96px) clamp(18px, 6vw, 82px);
+  padding: clamp(56px, 7vw, 88px) clamp(18px, 6vw, 82px);
   background: var(--surface);
 }
 
 .bookingForm {
-  width: min(1080px, 100%);
+  width: min(960px, 100%);
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 22px;
+  gap: 22px 24px;
+  padding: clamp(22px, 3vw, 34px);
+  border: 1px solid var(--border);
+  background: rgba(247, 245, 239, 0.72);
 }
 
 .bookingForm label,
@@ -83,17 +86,19 @@
   max-width: 100%;
   border: 1px solid var(--border);
   border-radius: 0;
-  background: var(--paper);
+  background: rgba(255, 254, 250, 0.82);
   color: var(--ink);
   font: inherit;
   font-size: 12px;
   letter-spacing: 0.04em;
   line-height: 1.7;
-  padding: 14px 12px;
+  min-height: 54px;
+  padding: 15px 14px;
   text-transform: none;
 }
 
 .bookingForm textarea {
+  min-height: 150px;
   resize: vertical;
 }
 
@@ -105,12 +110,77 @@
 
 .bookingForm fieldset {
   margin: 0;
+  min-width: 0;
   padding: 18px;
   border: 1px solid var(--border);
 }
 
 .bookingForm legend {
   padding: 0 8px;
+}
+
+.eventDetailsSection {
+  grid-column: 1 / -1;
+  gap: 22px;
+  padding: clamp(20px, 3vw, 30px);
+  border: 1px solid var(--border);
+  background:
+    linear-gradient(135deg, rgba(125, 81, 60, 0.06), transparent 42%),
+    rgba(255, 254, 250, 0.74);
+}
+
+.eventDetailsIntro {
+  display: grid;
+  gap: 8px;
+}
+
+.eventDetailsIntro span {
+  color: var(--brand);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.eventDetailsIntro h2 {
+  margin: 0;
+  color: var(--brand);
+  font-family: "Butler Regular", Georgia, serif;
+  font-size: clamp(30px, 3vw, 42px);
+  font-weight: 400;
+  line-height: 1.02;
+  text-transform: uppercase;
+}
+
+.eventDetailsIntro p {
+  max-width: 640px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  line-height: 1.8;
+}
+
+.eventDetailsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 22px;
+}
+
+.eventDetailsWide {
+  grid-column: 1 / -1;
+}
+
+.bookingForm .eventDetailsSection label {
+  grid-template-columns: 1fr;
+  align-items: start;
+  color: var(--brand);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  line-height: 1.5;
+  text-transform: uppercase;
 }
 
 .bookingForm fieldset label {
@@ -666,7 +736,8 @@
 
 .bookingForm > button {
   justify-self: start;
-  padding: 14px 20px;
+  min-height: 54px;
+  padding: 16px 24px;
   background: var(--brand);
   color: var(--surface);
   font-size: 10px;
@@ -793,7 +864,12 @@
 
   .bookingForm {
     grid-template-columns: 1fr;
-    width: min(760px, 100%);
+    width: min(720px, 100%);
+    gap: 20px;
+  }
+
+  .eventDetailsGrid {
+    grid-template-columns: 1fr;
   }
 
   .quoteEstimator,
@@ -862,6 +938,21 @@
 
   .bookingForm {
     gap: 18px;
+    padding: 20px;
+  }
+
+  .eventDetailsSection {
+    gap: 18px;
+    padding: 18px;
+  }
+
+  .eventDetailsIntro h2 {
+    font-size: clamp(27px, 8vw, 36px);
+  }
+
+  .eventDetailsIntro p {
+    font-size: 10px;
+    line-height: 1.75;
   }
 
   .quoteHeader,
@@ -956,8 +1047,14 @@
   .bookingForm input,
   .bookingForm select,
   .bookingForm textarea {
+    min-height: 52px;
     padding: 12px 10px;
     font-size: 16px;
+    letter-spacing: 0;
+  }
+
+  .bookingForm textarea {
+    min-height: 132px;
   }
 
   .faqSection {
@@ -1004,11 +1101,25 @@
   }
 
   .formSection {
-    padding: 34px 10px;
+    padding: 32px 12px;
   }
 
   .bookingForm {
     gap: 14px;
+    padding: 14px;
+  }
+
+  .eventDetailsSection {
+    padding: 14px 12px;
+  }
+
+  .eventDetailsIntro h2 {
+    font-size: 28px;
+    line-height: 1.04;
+  }
+
+  .eventDetailsIntro span {
+    letter-spacing: 0.15em;
   }
 
   .quoteHeader,
@@ -1046,7 +1157,7 @@
   }
 
   .bookingForm fieldset {
-    padding: 14px;
+    padding: 14px 12px;
   }
 
   .bookingForm .quoteOptionGroup {
@@ -1055,8 +1166,11 @@
 
   .bookingForm > button {
     min-height: 48px;
-    padding-inline: 14px;
-    letter-spacing: 0.14em;
+    justify-self: stretch;
+    padding-inline: 12px;
+    font-size: 9px;
+    letter-spacing: 0.11em;
+    line-height: 1.5;
   }
 
   .quoteResultIntro h3 {

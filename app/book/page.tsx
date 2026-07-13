@@ -10,12 +10,12 @@ import { wsMedia } from "../ws-media";
 export const metadata = createPageMetadata({
   title: "Book Wedding Photography",
   description:
-    "Build an indicative wedding photography and films quote for Bangalore events, then send your enquiry to Leading Lines Photography on WhatsApp.",
+    "Share your event details for wedding photography and films in Bangalore, then send your enquiry to Leading Lines Photography on WhatsApp.",
   path: "/book",
   keywords: [
     "book wedding photographer Bangalore",
-    "wedding photography quote Bangalore",
-    "wedding films quote Bangalore",
+    "wedding enquiry form Bangalore",
+    "wedding photography booking Bangalore",
     "Leading Lines Photography booking",
   ],
 });
@@ -92,15 +92,15 @@ export default function BookPage() {
       <SiteNav />
 
       <ParallaxBookingBanner
-        eyebrow="Wedding quote builder"
-        title="Build your coverage event by event."
-        body="Choose the rituals, team, deliverables, and upgrades. We will turn it into a calm, custom estimate."
-        href="#quote-builder"
-        label="Start building your wedding quote"
+        eyebrow="Wedding enquiry"
+        title="Tell us about your event."
+        body="Share the date, event name, venue, and any special requirements. We will follow up with the next steps."
+        href="#event-details"
+        label="Share your event details"
         image={wsMedia.bookingBanner}
       />
 
-      <section className={styles.formSection} id="quote-builder">
+      <section className={styles.formSection} id="event-details">
         <BookingForm />
       </section>
 
