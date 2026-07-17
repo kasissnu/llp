@@ -15,6 +15,17 @@ declare global {
   }
 }
 
+function normalizePhoneInput(value: string) {
+  const trimmed = value.trim();
+
+  if (trimmed.startsWith("+")) {
+    const digits = trimmed.slice(1).replace(/\D/g, "").slice(0, 12);
+    return `+${digits}`;
+  }
+
+  return trimmed.replace(/\D/g, "").slice(0, 10);
+}
+
 export function BookingForm() {
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -64,7 +75,21 @@ export function BookingForm() {
       </label>
       <label>
         Phone number
-        <input name="phone" type="tel" required />
+        <input
+          name="phone"
+          type="tel"
+          inputMode="tel"
+          autoComplete="tel"
+          // placeholder="e.g. 9876543210 or +919876543210"
+          pattern={"^(?:\\+91\\s*\\d{10}|\\d{10})$"}
+          title="Enter a 10-digit phone number, or +91 followed by 10 digits. A space after +91 is allowed."
+          maxLength={13}
+          required
+          onInput={(event) => {
+            const input = event.currentTarget;
+            input.value = normalizePhoneInput(input.value);
+          }}
+        />
       </label>
       <label>
         Location
