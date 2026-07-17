@@ -751,6 +751,16 @@
   background: var(--brand-soft);
 }
 
+.formNote {
+  grid-column: 1 / -1;
+  margin: 0;
+  max-width: 760px;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  line-height: 1.75;
+}
+
 .faqSection {
   display: grid;
   grid-template-columns: minmax(0, 420px) minmax(320px, 620px);

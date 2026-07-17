@@ -2,30 +2,17 @@
 
 import type { FormEvent } from "react";
 import styles from "./book.module.css";
+import {
+  buildBookingSheetPayload,
+  buildWhatsAppMessage,
+  readBookingSubmission,
+  whatsappNumber,
+} from "./booking-data";
 
-const whatsappNumber = "917604025885";
-
-const fixedFields = [
-  { label: "Name", name: "name" },
-  { label: "Phone", name: "phone" },
-  { label: "Location", name: "location" },
-  { label: "Guest count", name: "guest-count" },
-];
-
-const eventFields = [
-  { label: "Event name", name: "event-name" },
-  { label: "Event date", name: "event-date" },
-  { label: "Requirements", name: "event-requirements" },
-];
-
-function getValue(formData: FormData, name: string) {
-  const value = formData.get(name);
-  return typeof value === "string" ? value.trim() : "";
-}
-
-function appendField(lines: string[], label: string, value: string) {
-  if (!value) return;
-  lines.push(`${label}: ${value}`);
+declare global {
+  interface Window {
+    fbq?: (...args: unknown[]) => void;
+  }
 }
 
 export function BookingForm() {
@@ -37,24 +24,35 @@ export function BookingForm() {
     if (!form.reportValidity()) return;
 
     const formData = new FormData(form);
-    const lines = ["New booking enquiry - Leading Lines Photography", ""];
+    const submission = readBookingSubmission(formData);
+    const payload = buildBookingSheetPayload(submission);
+    const body = JSON.stringify(payload);
 
-    lines.push("Contact details");
-    fixedFields.forEach((field) => appendField(lines, field.label, getValue(formData, field.name)));
+    const isQueued =
+      typeof navigator.sendBeacon === "function" &&
+      navigator.sendBeacon(
+        "/api/bookings",
+        new Blob([body], {
+          type: "application/json",
+        }),
+      );
 
-    const eventLines = eventFields
-      .map((field) => ({
-        label: field.label,
-        value: getValue(formData, field.name),
-      }))
-      .filter((field) => field.value.length > 0);
-
-    if (eventLines.length > 0) {
-      lines.push("", "Event details");
-      eventLines.forEach((field) => appendField(lines, field.label, field.value));
+    if (!isQueued) {
+      void fetch("/api/bookings", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body,
+        keepalive: true,
+      }).catch((error) => {
+        console.error("Failed to queue booking submission", error);
+      });
     }
 
-    const message = encodeURIComponent(lines.join("\n"));
+    window.fbq?.("track", "Lead");
+
+    const message = buildWhatsAppMessage(submission);
     window.open(`https://wa.me/${whatsappNumber}?text=${message}`, "_blank", "noopener,noreferrer");
   }
 
@@ -98,7 +96,8 @@ export function BookingForm() {
           </label>
         </div>
       </fieldset>
-      <button type="submit">Send booking enquiry on WhatsApp</button>
+      
+      <button type="submit">Chat With Us on WhatsApp</button>
     </form>
   );
 }
